@@ -17,6 +17,7 @@
   habtm special_features
   habtm flower_attributes
   habtm garden_styles
+
   belongs_to leave_types
   belongs_to growth_rate
   belongs_to flower_color
@@ -49,17 +50,17 @@
   - KeyFeature
     name
 
-- Usage
-  name
+  - Usage
+    name
 
-- PlantType
-  name
+  - PlantType
+    name
 
-- SpecialFeature
-  name
+  - SpecialFeature
+    name
 
-- FlowerAttribute
-  name
+  - FlowerAttribute
+    name
 
-- GardenStyle
-  name
+  - GardenStyle
+    name
