@@ -1,0 +1,2 @@
+class WateringNeed < ApplicationRecord
+end

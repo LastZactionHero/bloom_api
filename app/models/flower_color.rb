@@ -1,0 +1,2 @@
+class FlowerColor < ApplicationRecord
+end

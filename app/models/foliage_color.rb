@@ -1,0 +1,2 @@
+class FoliageColor < ApplicationRecord
+end

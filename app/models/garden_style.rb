@@ -1,0 +1,2 @@
+class GardenStyle < ApplicationRecord
+end

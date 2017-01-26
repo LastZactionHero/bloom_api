@@ -1,0 +1,2 @@
+class KeyFeature < ApplicationRecord
+end

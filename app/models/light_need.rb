@@ -1,0 +1,2 @@
+class LightNeed < ApplicationRecord
+end
