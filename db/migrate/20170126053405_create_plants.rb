@@ -16,8 +16,8 @@ class CreatePlants < ActiveRecord::Migration[5.0]
       t.integer :growth_rate_id
       t.integer :flower_color_id
       t.integer :foliage_color_id
-      t.integer :light_needs_id
-      t.integer :watering_needs_id
+      t.integer :light_need_id
+      t.integer :watering_need_id
 
       t.timestamps
     end
@@ -31,7 +31,7 @@ class CreatePlants < ActiveRecord::Migration[5.0]
     add_index :plants, :growth_rate_id
     add_index :plants, :flower_color_id
     add_index :plants, :foliage_color_id
-    add_index :plants, :light_needs_id
-    add_index :plants, :watering_needs_id
+    add_index :plants, :light_need_id
+    add_index :plants, :watering_need_id
   end
 end

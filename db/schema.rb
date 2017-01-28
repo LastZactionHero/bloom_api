@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170126053405) do
+ActiveRecord::Schema.define(version: 20170127195940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 20170126053405) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_flower_attributes_on_name", using: :btree
+  end
+
+  create_table "flower_attributes_plants", id: false, force: :cascade do |t|
+    t.integer "flower_attribute_id", null: false
+    t.integer "plant_id",            null: false
+    t.index ["flower_attribute_id", "plant_id"], name: "join_fa_plant", using: :btree
+    t.index ["plant_id", "flower_attribute_id"], name: "join_plant_fa", using: :btree
   end
 
   create_table "flower_colors", force: :cascade do |t|
@@ -43,6 +50,13 @@ ActiveRecord::Schema.define(version: 20170126053405) do
     t.index ["name"], name: "index_garden_styles_on_name", using: :btree
   end
 
+  create_table "garden_styles_plants", id: false, force: :cascade do |t|
+    t.integer "garden_style_id", null: false
+    t.integer "plant_id",        null: false
+    t.index ["garden_style_id", "plant_id"], name: "index_garden_styles_plants_on_garden_style_id_and_plant_id", using: :btree
+    t.index ["plant_id", "garden_style_id"], name: "index_garden_styles_plants_on_plant_id_and_garden_style_id", using: :btree
+  end
+
   create_table "growth_rates", force: :cascade do |t|
     t.text     "name"
     t.datetime "created_at", null: false
@@ -55,6 +69,13 @@ ActiveRecord::Schema.define(version: 20170126053405) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_key_features_on_name", using: :btree
+  end
+
+  create_table "key_features_plants", id: false, force: :cascade do |t|
+    t.integer "key_feature_id", null: false
+    t.integer "plant_id",       null: false
+    t.index ["key_feature_id", "plant_id"], name: "index_key_features_plants_on_key_feature_id_and_plant_id", using: :btree
+    t.index ["plant_id", "key_feature_id"], name: "index_key_features_plants_on_plant_id_and_key_feature_id", using: :btree
   end
 
   create_table "leave_types", force: :cascade do |t|
@@ -94,10 +115,13 @@ ActiveRecord::Schema.define(version: 20170126053405) do
     t.integer  "growth_rate_id"
     t.integer  "flower_color_id"
     t.integer  "foliage_color_id"
-    t.integer  "light_needs_id"
-    t.integer  "watering_needs_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.integer  "light_need_id"
+    t.integer  "watering_need_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.text     "watering_needs_raw"
+    t.text     "average_size_raw"
+    t.integer  "plant_type_id"
     t.index ["avg_height"], name: "index_plants_on_avg_height", using: :btree
     t.index ["avg_width"], name: "index_plants_on_avg_width", using: :btree
     t.index ["common_name"], name: "index_plants_on_common_name", using: :btree
@@ -105,10 +129,32 @@ ActiveRecord::Schema.define(version: 20170126053405) do
     t.index ["foliage_color_id"], name: "index_plants_on_foliage_color_id", using: :btree
     t.index ["growth_rate_id"], name: "index_plants_on_growth_rate_id", using: :btree
     t.index ["leave_type_id"], name: "index_plants_on_leave_type_id", using: :btree
-    t.index ["light_needs_id"], name: "index_plants_on_light_needs_id", using: :btree
+    t.index ["light_need_id"], name: "index_plants_on_light_need_id", using: :btree
+    t.index ["plant_type_id"], name: "index_plants_on_plant_type_id", using: :btree
     t.index ["scientific_name"], name: "index_plants_on_scientific_name", using: :btree
     t.index ["store_available"], name: "index_plants_on_store_available", using: :btree
-    t.index ["watering_needs_id"], name: "index_plants_on_watering_needs_id", using: :btree
+    t.index ["watering_need_id"], name: "index_plants_on_watering_need_id", using: :btree
+  end
+
+  create_table "plants_special_features", id: false, force: :cascade do |t|
+    t.integer "plant_id",           null: false
+    t.integer "special_feature_id", null: false
+    t.index ["plant_id", "special_feature_id"], name: "join_plant_sf", using: :btree
+    t.index ["special_feature_id", "plant_id"], name: "join_sf_plant", using: :btree
+  end
+
+  create_table "plants_usages", id: false, force: :cascade do |t|
+    t.integer "plant_id", null: false
+    t.integer "usage_id", null: false
+    t.index ["plant_id", "usage_id"], name: "index_plants_usages_on_plant_id_and_usage_id", using: :btree
+    t.index ["usage_id", "plant_id"], name: "index_plants_usages_on_usage_id_and_plant_id", using: :btree
+  end
+
+  create_table "plants_zones", id: false, force: :cascade do |t|
+    t.integer "plant_id", null: false
+    t.integer "zone_id",  null: false
+    t.index ["plant_id", "zone_id"], name: "index_plants_zones_on_plant_id_and_zone_id", using: :btree
+    t.index ["zone_id", "plant_id"], name: "index_plants_zones_on_zone_id_and_plant_id", using: :btree
   end
 
   create_table "special_features", force: :cascade do |t|
