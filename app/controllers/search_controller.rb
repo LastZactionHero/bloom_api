@@ -68,17 +68,17 @@ class SearchController < ApplicationController
 
   def options
     render status: 200, json: {
-      leave_types: LeaveType.all.map{|o| GenericNameSerializer.new(o).to_json },
-      growth_rates: GrowthRate.all.map{|o| GenericNameSerializer.new(o).to_json },
-      flower_colors: FlowerColor.all.map{|o| GenericNameSerializer.new(o).to_json },
-      foliage_colors: FoliageColor.all.map{|o| GenericNameSerializer.new(o).to_json },
-      light_needs: LightNeed.all.map{|o| GenericNameSerializer.new(o).to_json },
-      key_features: KeyFeature.all.map{|o| GenericNameSerializer.new(o).to_json },
-      special_features: SpecialFeature.all.map{|o| GenericNameSerializer.new(o).to_json },
-      zones: Zone.all.map{|o| GenericNameSerializer.new(o).to_json },
-      usages: Usage.all.map{|o| GenericNameSerializer.new(o).to_json },
-      garden_styles: GardenStyle.all.map{|o| GenericNameSerializer.new(o).to_json },
-      flower_attributes: FlowerAttribute.all.map{|o| GenericNameSerializer.new(o).to_json },
+      leave_types: LeaveType.all.order('name ASC').map{|o| GenericNameSerializer.new(o).to_json },
+      growth_rates: GrowthRate.all.order('name ASC').map{|o| GenericNameSerializer.new(o).to_json },
+      flower_colors: FlowerColor.all.order('name ASC').map{|o| GenericNameSerializer.new(o).to_json },
+      foliage_colors: FoliageColor.all.order('name ASC').map{|o| GenericNameSerializer.new(o).to_json },
+      light_needs: LightNeed.all.order('name ASC').map{|o| GenericNameSerializer.new(o).to_json },
+      key_features: KeyFeature.all.order('name ASC').map{|o| GenericNameSerializer.new(o).to_json },
+      special_features: SpecialFeature.all.order('name ASC').map{|o| GenericNameSerializer.new(o).to_json },
+      zones: Zone.all.order('name ASC').map{|o| GenericNameSerializer.new(o).to_json },
+      usages: Usage.all.order('name ASC').map{|o| GenericNameSerializer.new(o).to_json },
+      garden_styles: GardenStyle.all.order('name ASC').map{|o| GenericNameSerializer.new(o).to_json },
+      flower_attributes: FlowerAttribute.all.order('name ASC').map{|o| GenericNameSerializer.new(o).to_json },
     }
   end
 
