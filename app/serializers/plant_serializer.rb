@@ -19,7 +19,7 @@ class PlantSerializer < BaseSerializer
       light_need: @object.light_need ? GenericNameSerializer.new(@object.light_need).to_json: {},
 
       key_features: @object.key_features.map{|f| GenericNameSerializer.new(f).to_json },
-      special_features: @object.usages.map{|f| GenericNameSerializer.new(f).to_json },
+      special_features: @object.special_features.map{|f| GenericNameSerializer.new(f).to_json },
 
       zones: @object.zones.map{|z| GenericNameSerializer.new(z).to_json },
       usages: @object.usages.map{|u| GenericNameSerializer.new(u).to_json },
