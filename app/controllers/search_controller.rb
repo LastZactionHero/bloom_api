@@ -4,7 +4,7 @@ class SearchController < ApplicationController
   def query
     sort_order = 'common_name'
     sort_direction = 'ASC'
-    page_idx = 0
+    page_idx = params[:page_idx] || 0
 
     plants_query = Plant.where('')
       .order("#{sort_order} #{sort_direction}")
@@ -58,7 +58,8 @@ class SearchController < ApplicationController
 
     render status: 200, json: {
       meta: {
-        page_idx: 0,
+        page_idx: page_idx,
+        total_pages: (record_count.to_f / RECORDS_PER_PAGE.to_f).ceil,
         total: record_count
       },
       plants: plants.map { |plant| PlantSerializer.new(plant).to_json }
