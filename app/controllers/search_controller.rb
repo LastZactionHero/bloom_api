@@ -53,6 +53,18 @@ class SearchController < ApplicationController
     if query[:zones] && query[:zones].any?
       plants_query = plants_query.joins(:zones).where('zones.id IN (?)', query[:zones])
     end
+    if query[:height]['min']
+      plants_query = plants_query.where('avg_height > ?', query[:height]['min'])
+    end
+    if query[:height]['max']
+      plants_query = plants_query.where('avg_height < ?', query[:height]['max'])
+    end
+    if query[:width]['min']
+      plants_query = plants_query.where('avg_width > ?', query[:width]['min'])
+    end
+    if query[:width]['max']
+      plants_query = plants_query.where('avg_width < ?', query[:width]['max'])
+    end
 
     record_count = plants_query.count
 
