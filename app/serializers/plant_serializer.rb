@@ -11,6 +11,7 @@ class PlantSerializer < BaseSerializer
       image_url: @object.image_url,
       description: @object.description,
 
+      plant_type: @object.plant_type ? GenericNameSerializer.new(@object.plant_type).to_json : {},
       leave_type: @object.leave_type ? GenericNameSerializer.new(@object.leave_type).to_json : {},
       growth_rate: @object.growth_rate ? GenericNameSerializer.new(@object.growth_rate).to_json: {},
       flower_color: @object.flower_color ? GenericNameSerializer.new(@object.flower_color).to_json: {},

@@ -35,6 +35,9 @@ class SearchController < ApplicationController
     if query[:leave_types] && query[:leave_types].any?
       plants_query = plants_query.joins(:leave_type).where('leave_types.id IN (?)', query[:leave_types])
     end
+    if query[:plant_types] && query[:plant_types].any?
+      plants_query = plants_query.where("plant_type_id IN (?)", query[:plant_types])
+    end
     if query[:light_needs] && query[:light_needs].any?
       plants_query = plants_query.where("light_need_id IN (?)", query[:light_needs])
     end
@@ -79,6 +82,7 @@ class SearchController < ApplicationController
       usages: Usage.all.order('name ASC').map{|o| GenericNameSerializer.new(o).to_json },
       garden_styles: GardenStyle.all.order('name ASC').map{|o| GenericNameSerializer.new(o).to_json },
       flower_attributes: FlowerAttribute.all.order('name ASC').map{|o| GenericNameSerializer.new(o).to_json },
+      plant_types: PlantType.all.order('name ASC').map{|o| GenericNameSerializer.new(o).to_json }
     }
   end
 
