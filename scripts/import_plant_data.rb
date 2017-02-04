@@ -29,8 +29,8 @@ plants_data.each_with_index do |plant_data, idx|
 
   plant.description = plant_data[17]
   plant.light_need = LightNeed.find_by(name: plant_data[18]) if plant_data[18] && plant_data[18].length > 0
+  plant.watering_need = WateringNeed.find_by(name: plant_data[38]) if plant_data[38] && plant_data[38].length > 0
   plant.watering_needs_raw = plant_data[19]
-  plant.watering_need = nil
   plant.average_size_raw = plant_data[20]
   plant.avg_width = plant_data[21].to_f if plant_data[21] && plant_data[21].length > 0
   plant.avg_height = plant_data[22].to_f if plant_data[22] && plant_data[22].length > 0

@@ -64,3 +64,7 @@ FlowerAttribute.create([
 GardenStyle.create([
   "Cottage", "Asian/Zen", "Rustic", "Mediterranean", "Contemporary", "Undefined", "Tropical", "Xeric", "Sustainable Garden"
 ].map{|n| {name: n}})
+
+WateringNeed.create([
+   "Water Weekly", "Water occasionally, once established", "Watering during extreme heat", nil, "Moist soil, not soggy", "Semi most soil", "Little watering, once established", "Water regularly", "Constantly moist soil", "Dry soil", "Well drained soil", "Water when top of soil is dry"
+].map{|n| {name: n}})
