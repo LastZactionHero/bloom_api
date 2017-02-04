@@ -1,0 +1,2 @@
+class EarlySignUp < ApplicationRecord
+end
