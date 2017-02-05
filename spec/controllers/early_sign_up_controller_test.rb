@@ -3,14 +3,16 @@ require 'rails_helper'
 describe EarlySignUpController do
   it 'creates an EarlySignUp' do
     email = 'user@site.com'
+    zipcode = '80026'
 
     expect(EarlySignUp.count).to eq(0)
-    post :signup, email: email
+    post :signup, email: email, zipcode: zipcode
     expect(response.status).to eq(200)
 
     expect(EarlySignUp.count).to eq(1)
     expect(EarlySignUp.first.email).to eq(email)
     expect(EarlySignUp.first.newsletter).to eq(false)
+    expect(EarlySignUp.first.zipcode).to eq(zipcode)
   end
 
   it 'registers for the newsletter' do
