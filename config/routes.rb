@@ -6,4 +6,16 @@ Rails.application.routes.draw do
   post '/search/query', to: 'search#query'
   get '/search/options', to: 'search#options'
   post '/early_sign_up', to: 'early_sign_up#signup'
+
+  resources :bed_templates do
+    collection do
+      get :index
+      post :create
+    end
+    member do
+      patch :update
+      delete :destroy
+      get :placements
+    end
+  end
 end

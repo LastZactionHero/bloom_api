@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170205023245) do
+ActiveRecord::Schema.define(version: 20170206003555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bed_templates", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "design_width"
+    t.integer  "design_height"
+    t.jsonb    "config"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "early_sign_ups", force: :cascade do |t|
     t.text     "email"
