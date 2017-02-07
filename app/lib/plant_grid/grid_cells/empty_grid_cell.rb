@@ -1,9 +1,11 @@
-class EmptyGridCell < GridCell
-  def initialize(width_percent, height_percent, options = {})
-    super(width_percent, height_percent, options)
-  end
+module PlantGrid
+  class EmptyGridCell < GridCell
+    def initialize(width_percent, height_percent, options = {})
+      super(width_percent, height_percent, options)
+    end
 
-  def draw
-    (1..@height).map{ Array.new(@width, ' ') }
+    def draw
+      (1..@height).map{ Array.new(@width, ' ') }
+    end
   end
 end

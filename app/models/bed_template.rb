@@ -5,9 +5,9 @@ class BedTemplate < ApplicationRecord
 
   def render(width, height)
     config_hash = JSON.parse(config)
-    parent_cell = BedTemplateParser.parse_cell(config_hash['cell'])
-    grid = Grid.new(parent_cell, width, height)
-    Printer.new(grid).draw
+    parent_cell = PlantGrid::BedTemplateParser.parse_cell(config_hash['cell'])
+    grid = PlantGrid::Grid.new(parent_cell, width, height)
+    PlantGrid::Printer.new(grid).draw
   end
 
   private
@@ -23,7 +23,7 @@ class BedTemplate < ApplicationRecord
     self.name = config_hash['name']
 
     begin
-      BedTemplateParser.parse_cell(config_hash['cell']) # Make sure the cell is parseable
+      PlantGrid::BedTemplateParser.parse_cell(config_hash['cell']) # Make sure the cell is parseable
     rescue ArgumentError => e
       errors.add(:config, 'is not a valid template')
     end
