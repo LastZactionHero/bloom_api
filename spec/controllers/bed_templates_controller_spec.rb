@@ -19,7 +19,7 @@ describe BedTemplatesController do
     it 'creates a BedTemplate' do
       expect(BedTemplate.count).to eq(0) # Assumption
 
-      post :create, config: config
+      post :create, params: { config: config }
       expect(response.status).to eq(201)
 
       expect(BedTemplate.count).to eq(1)
@@ -35,21 +35,21 @@ describe BedTemplatesController do
       mod_config = JSON.parse(config)
       mod_config.delete('name')
 
-      post :create, config: mod_config.to_json
+      post :create, params: { config: mod_config.to_json }
       expect(response.status).to eq(400)
       errors = JSON.parse(response.body)['errors']
       expect(errors['name']).to include('can\'t be blank')
     end
 
     it 'returns an error if the config is not valid JSON' do
-      post :create, config: 'not some json'
+      post :create, params: { config: 'not some json' }
       expect(response.status).to eq(400)
       errors = JSON.parse(response.body)['errors']
       expect(errors['config']).to include('is not valid JSON')
     end
 
     it 'returns an error it the config is not a valid template' do
-      post :create, config: {name: 'Not a valid template', cell: 'whatever'}.to_json
+      post :create, params: { config: {name: 'Not a valid template', cell: 'whatever'}.to_json }
       expect(response.status).to eq(400)
       errors = JSON.parse(response.body)['errors']
       expect(errors['config']).to include('is not a valid template')
@@ -64,7 +64,7 @@ describe BedTemplatesController do
       mod_config = JSON.parse(bed_template.config)
       mod_config['name'] = updated_name
 
-      patch :update, id: bed_template.id, config: mod_config.to_json
+      patch :update, params: { id: bed_template.id, config: mod_config.to_json }
       expect(response.status).to eq(200)
 
       body = JSON.parse(response.body)
@@ -79,7 +79,7 @@ describe BedTemplatesController do
       bed_template
       expect(BedTemplate.count).to eq(1) # Assumption
 
-      delete :destroy, id: bed_template.id
+      delete :destroy, params: { id: bed_template.id }
       expect(response.status).to eq(200)
 
       expect(BedTemplate.count).to eq(0)
@@ -92,7 +92,7 @@ describe BedTemplatesController do
     let(:height) { 72 }
 
     it 'returns a coordinate rendering of the BedTemplate' do
-      get :placements, id: bed_template.id, width: width, height: height
+      get :placements, params: { id: bed_template.id, width: width, height: height }
       expect(response.status).to eq(200)
 
       body = JSON.parse(response.body)

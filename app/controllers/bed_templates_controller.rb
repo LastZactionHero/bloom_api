@@ -28,7 +28,7 @@ class BedTemplatesController < ApplicationController
   def destroy
     bed_template = BedTemplate.find(params[:id])
     bed_template.destroy
-    render nothing: true
+    head 200
   end
 
   def placements

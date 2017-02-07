@@ -6,7 +6,7 @@ describe EarlySignUpController do
     zipcode = '80026'
 
     expect(EarlySignUp.count).to eq(0)
-    post :signup, email: email, zipcode: zipcode
+    post :signup, params: { email: email, zipcode: zipcode }
     expect(response.status).to eq(200)
 
     expect(EarlySignUp.count).to eq(1)
@@ -19,7 +19,7 @@ describe EarlySignUpController do
     email = 'user@site.com'
 
     expect(EarlySignUp.count).to eq(0)
-    post :signup, email: email, newsletter: true
+    post :signup, params: { email: email, newsletter: true }
     expect(response.status).to eq(200)
 
     expect(EarlySignUp.count).to eq(1)
@@ -29,7 +29,7 @@ describe EarlySignUpController do
 
   it 'returns an error if no email is provided' do
     expect(EarlySignUp.count).to eq(0)
-    post :signup, email: nil
+    post :signup, params: { email: nil }
     expect(response.status).to eq(400)
 
     expect(JSON.parse(response.body)['errors']['email']).to eq(['must be provided'])
