@@ -31,7 +31,10 @@ module PlantGrid
             cell_data['plant']['vertical_spacing'],
             cell_data['plant']['search_query']
           ),
-          {'RectPositionPattern' => RectPositionPattern}[cell_data['pattern']],
+          {
+            'RectPositionPattern' => RectPositionPattern,
+            'SingleRowPositionPattern' => SingleRowPositionPattern
+          }[cell_data['pattern']],
           (cell_data['options'] || {})
         )
       when 'EmptyGridCell'
