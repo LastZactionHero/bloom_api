@@ -33,7 +33,8 @@ module PlantGrid
           ),
           {
             'RectPositionPattern' => RectPositionPattern,
-            'SingleRowPositionPattern' => SingleRowPositionPattern
+            'SingleRowPositionPattern' => SingleRowPositionPattern,
+            'ZigZagPositionPattern' => ZigZagPositionPattern
           }[cell_data['pattern']],
           (cell_data['options'] || {})
         )
