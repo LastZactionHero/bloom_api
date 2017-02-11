@@ -2,6 +2,7 @@ class PlantSerializer < BaseSerializer
   def to_json
     {
       id: @object.id,
+      permalink: @object,permalink,
       common_name: @object.common_name,
       scientific_name: @object.scientific_name,
       size: {

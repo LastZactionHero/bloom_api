@@ -12,4 +12,14 @@ class Plant < ApplicationRecord
   has_and_belongs_to_many :special_features
   has_and_belongs_to_many :garden_styles
   has_and_belongs_to_many :flower_attributes
+
+  validates_uniqueness_of :permalink
+
+  before_validation :set_permalink
+
+  private
+
+  def set_permalink
+    self.permalink ||= common_name.downcase.gsub(/[^a-z ]/, '').gsub(/[^a-z]+/, '_')
+  end
 end
