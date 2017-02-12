@@ -5,10 +5,12 @@ Rails.application.routes.draw do
   match '/bed_templates', to: 'application#cors', via: [:options]
   match '/bed_templates/:id/placements', to: 'application#cors', via: [:options]
   match '/bed_templates/:id', to: 'application#cors', via: [:options]
+  match '/zones/search', to: 'application#cors', via: [:options]
 
   post '/search/query', to: 'search#query'
   get '/search/options', to: 'search#options'
   post '/early_sign_up', to: 'early_sign_up#signup'
+  get '/zones/search', to: 'zones#search'
 
   resources :bed_templates do
     collection do
