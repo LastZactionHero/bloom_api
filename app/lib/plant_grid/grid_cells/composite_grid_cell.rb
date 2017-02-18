@@ -1,3 +1,5 @@
+require_relative '../grid_cell'
+
 module PlantGrid
   class CompositeGridCell < GridCell
     def initialize(width_percent, height_percent, direction, cells, options = {})
