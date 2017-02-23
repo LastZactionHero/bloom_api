@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :bed_templates do
     collection do
       get :index
+      get :suggestions
       post :create
     end
     member do

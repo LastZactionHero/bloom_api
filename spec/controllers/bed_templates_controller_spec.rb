@@ -13,6 +13,37 @@ describe BedTemplatesController do
     end
   end
 
+  describe 'suggestions' do
+
+    it 'returns a list of suggested templates' do
+      bed_templates = FactoryGirl.create_list(:bed_template, 3)
+
+      get :suggestions, params: { width: 30, depth: 6 }
+      expect(response.status).to eq(200)
+
+      body = JSON.parse(response.body)
+      expect(body.map{|bt| bt['id']}.sort).to eq(bed_templates.map{|bt| bt.id}.sort)
+    end
+
+    it 'returns an error if the dimensions are too small' do
+      get :suggestions, params: { width: 2, depth: 2 }
+      expect(response.status).to eq(400)
+
+      body = JSON.parse(response.body)
+      expect(body['errors']['width']).to eq(['is too small'])
+      expect(body['errors']['depth']).to eq(['is too small'])
+    end
+
+    it 'returns an error if the dimensions are too large' do
+      get :suggestions, params: { width: 101, depth: 101 }
+      expect(response.status).to eq(400)
+
+      body = JSON.parse(response.body)
+      expect(body['errors']['width']).to eq(['is too large'])
+      expect(body['errors']['depth']).to eq(['is too large'])
+    end
+  end
+
   describe 'create' do
     let(:config) { File.read("#{Rails.root}/spec/fixtures/bed_template_a.json") }
 
