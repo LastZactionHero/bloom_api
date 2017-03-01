@@ -29,7 +29,9 @@ module PlantGrid
             cell_data['plant']['width'],
             cell_data['plant']['horizontal_spacing'],
             cell_data['plant']['vertical_spacing'],
-            cell_data['plant']['search_query']
+            cell_data['plant']['search_query'],
+            cell_data['plant']['tooltip'],
+            cell_data['plant']['plant_type']
           ),
           {
             'RectPositionPattern' => RectPositionPattern,
