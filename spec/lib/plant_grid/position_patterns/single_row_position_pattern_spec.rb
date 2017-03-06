@@ -15,7 +15,9 @@ module PlantGrid
                                     test_case[:plant][:width],
                                     test_case[:plant][:horizontal_spacing],
                                     test_case[:plant][:vertical_spacing],
-                                    {})
+                                    {},
+                                    'tooltip',
+                                    'plant type')
           SingleRowPositionPattern.new(grid, test_case[:grid][:width], test_case[:grid][:height], plant).position
 
           # Make sure total number of plants matches expected

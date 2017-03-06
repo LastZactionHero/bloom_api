@@ -131,5 +131,21 @@ describe BedTemplatesController do
       expect(body['height']).to eq(height)
       expect(body['placements']).to be_present
     end
+
+    it 'returns a rendering with replacements from mapping' do
+      plant = FactoryGirl.create(:plant, permalink: 'shrubby')
+
+      expect_any_instance_of(BedTemplate).to receive(:render)
+        .with(width, height, {'C' => plant})
+        .and_return({})
+
+      get :placements, params: { id: bed_template.id,
+                                 width: width,
+                                 height: height,
+                                 template_plant_mapping: {
+                                   'C' => plant.permalink
+                                 }}
+      expect(response.status).to eq(200)
+    end
   end
 end

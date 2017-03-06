@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :plant do
-    common_name "MyText"
+    common_name "Shruby"
     scientific_name "MyText"
     source_url "MyText"
     image_url "MyText"
@@ -15,7 +15,7 @@ FactoryGirl.define do
     growth_rate_id 1
     flower_color_id 1
     foliage_color_id 1
-    light_needs_id 1
-    watering_needs 1
+    light_need_id 1
+    watering_need nil
   end
 end

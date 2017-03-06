@@ -59,7 +59,20 @@ class BedTemplatesController < ApplicationController
     width = params[:width].to_i
     height = params[:height].to_i
     bed_template = BedTemplate.find(params[:id])
-    placements = bed_template.render(params[:width].to_i, params[:height].to_i)
+
+    # Set up the plant mapping, if available, replacing permalink with the Plant record
+    # "template_plant_mapping"=>{"V"=>"bloomerang_dark_purple_lilac", "KF"=>"overdam_feather_reed_grass"}
+    plant_mapping = params[:template_plant_mapping]
+    if plant_mapping
+      plant_mapping = plant_mapping.to_hash
+      plant_mapping.each do |label, permalink|
+        plant_mapping[label] = Plant.find_by(permalink: permalink)
+      end
+    end
+
+    placements = bed_template.render(params[:width].to_i,
+                                     params[:height].to_i,
+                                     plant_mapping)
     render status: 200, json: {width: width, height: height, placements: placements}
   end
 
