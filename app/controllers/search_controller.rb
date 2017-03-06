@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
-  RECORDS_PER_PAGE = 20
+  RECORDS_PER_PAGE = 24
 
   def query
     sort_order = 'common_name'
