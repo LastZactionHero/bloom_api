@@ -16,7 +16,7 @@ module PlantGrid
             grid[y_idx][x_idx] = '-' if y_idx == 0
           end
         end
-        position_pattern = @position_pattern_klass.new(grid, @width, @height, @plant)
+        position_pattern = @position_pattern_klass.new(grid, @width, @height, @plant, @options.delete('pattern'))
         position_pattern.position
 
         grid

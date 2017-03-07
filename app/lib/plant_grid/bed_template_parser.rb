@@ -1,7 +1,7 @@
 module PlantGrid
   class BedTemplateParser
     attr_reader :name, :design_width, :design_height, :zones, :cell
-    
+
     def initialize(name, design_width, design_height, zones, cell)
       @name = name
       @design_width = design_width
@@ -9,7 +9,7 @@ module PlantGrid
       @zones = zones
       @cell = cell
     end
-    
+
     def self.parse_cell(cell_data)
       case cell_data['type']
       when 'CompositeGridCell'
@@ -45,6 +45,13 @@ module PlantGrid
         PlantGrid::GridCells::EmptyGridCell.new(
           cell_data['width_percent'],
           cell_data['height_percent'],
+          (cell_data['options'] || {})
+        )
+      when 'OverlayGridCell'
+        PlantGrid::GridCells::OverlayGridCell.new(
+          cell_data['width_percent'],
+          cell_data['height_percent'],
+          cell_data['children'].map{|c| parse_cell(c)},
           (cell_data['options'] || {})
         )
       else

@@ -11,6 +11,7 @@ module PlantGrid
       @height = nil
       @min_width = options[:min_width]
       @min_height = options[:min_height]
+      @options = options
     end
 
     def draw
