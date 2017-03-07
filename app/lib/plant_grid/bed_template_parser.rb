@@ -1,7 +1,7 @@
 module PlantGrid
   class BedTemplateParser
     attr_reader :name, :design_width, :design_height, :zones, :cell
-
+    
     def initialize(name, design_width, design_height, zones, cell)
       @name = name
       @design_width = design_width
@@ -9,11 +9,11 @@ module PlantGrid
       @zones = zones
       @cell = cell
     end
-
+    
     def self.parse_cell(cell_data)
       case cell_data['type']
       when 'CompositeGridCell'
-        CompositeGridCell.new(
+        PlantGrid::GridCells::CompositeGridCell.new(
           cell_data['width_percent'],
           cell_data['height_percent'],
           cell_data['orientation'].to_sym,
@@ -21,7 +21,7 @@ module PlantGrid
           (cell_data['options'] || {})
         )
       when 'PlantGridCell'
-        PlantGridCell.new(
+        PlantGrid::GridCells::PlantGridCell.new(
           cell_data['width_percent'],
           cell_data['height_percent'],
           PlantTemplate.new(
@@ -34,14 +34,15 @@ module PlantGrid
             cell_data['plant']['plant_type']
           ),
           {
-            'RectPositionPattern' => RectPositionPattern,
-            'SingleRowPositionPattern' => SingleRowPositionPattern,
-            'ZigZagPositionPattern' => ZigZagPositionPattern
+            'RectPositionPattern' => PlantGrid::PositionPatterns::RectPositionPattern,
+            'SingleRowPositionPattern' => PlantGrid::PositionPatterns::SingleRowPositionPattern,
+            'ZigZagPositionPattern' => PlantGrid::PositionPatterns::ZigZagPositionPattern,
+            'ClumpingPositionPattern' => PlantGrid::PositionPatterns::ClumpingPositionPattern,
           }[cell_data['pattern']],
           (cell_data['options'] || {})
         )
       when 'EmptyGridCell'
-        EmptyGridCell.new(
+        PlantGrid::GridCells::EmptyGridCell.new(
           cell_data['width_percent'],
           cell_data['height_percent'],
           (cell_data['options'] || {})

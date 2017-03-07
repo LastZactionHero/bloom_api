@@ -194,6 +194,7 @@ DEPENDENCIES
   factory_girl_rails (~> 4.8)
   jbuilder (~> 2.5)
   jquery-rails
+  listen (~> 3.0.5)
   pg (~> 0.19.0)
   puma (~> 3.0)
   rails (~> 5.0.1)
