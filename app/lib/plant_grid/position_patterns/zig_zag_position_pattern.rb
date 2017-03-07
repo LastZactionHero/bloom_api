@@ -6,6 +6,9 @@ module PlantGrid
         plants_wide = (@width.to_f / (@plant.width_with_horizontal_spacing)).floor
         plants_tall = 1
 
+        # Always plant in odd numbers. If even, add another one
+        plants_wide -= 1 if plants_wide % 2 == 0
+
         # Determine the size of the box containing all plants
         plants_rect_width = @plant.width_with_horizontal_spacing * plants_wide
         plants_rect_height = @plant.width_with_vertical_spacing * 1.5
