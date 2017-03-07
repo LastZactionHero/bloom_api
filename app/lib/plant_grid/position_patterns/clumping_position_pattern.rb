@@ -3,24 +3,28 @@ module PlantGrid
     class ClumpingPositionPattern < PositionPattern
       def position
         # Determine the wavelength
+        plant_width = @plant.width_with_horizontal_spacing
 
-        start_x = @plant.width_with_horizontal_spacing / 2
-        start_y = @plant.width_with_horizontal_spacing / 2 #@height / 2
-        rows = (@height / @plant.width_with_horizontal_spacing).to_i
+        start_x = plant_width / 2
+        start_y = plant_width / 2 #@height / 2
+        rows = (@height / plant_width).to_i
 
         last_posns = []
 
-        # (0..rows).each do |row_idx|
+        (0..rows).each do |row_idx|
           (start_x.to_i..(@width.to_i - start_x.to_i)).each do |posn_x|
-            posn_y = start_y + Math.tan(posn_x / (@plant.width_with_horizontal_spacing / 4)) * @plant.width_with_horizontal_spacing / 2
+            posn_y = start_y +
+                      row_idx * plant_width +
+                      Math.sin(posn_x / (plant_width/8) + (row_idx % 2) * Math::PI) *
+                        plant_width / 2
 
-            if last_posns.empty? || no_overlap(last_posns, {x: posn_x, y: posn_y}, @plant.width_with_horizontal_spacing)
-              next if posn_y < 0 || posn_y > @height || posn_x < 0 || posn_x > @width
+            if last_posns.empty? || no_overlap(last_posns, {x: posn_x, y: posn_y}, plant_width * 0.75)
+              next if posn_y < plant_width / 2 || posn_y > @height - plant_width / 2 || posn_x < plant_width / 2 || posn_x > @width - plant_width / 2
               @grid[posn_y][posn_x] = @plant
               last_posns << {x: posn_x, y: posn_y}
             end
           end
-        # end
+        end
       end
 
       private
