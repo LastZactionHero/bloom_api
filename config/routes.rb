@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   match '/bed_templates/:id/placements', to: 'application#cors', via: [:options]
   match '/bed_templates/:id', to: 'application#cors', via: [:options]
   match '/zones/search', to: 'application#cors', via: [:options]
+  match '/plants/:id/favorite', to: 'application#cors', via: [:options]
+  match '/plants/:id/unfavorite', to: 'application#cors', via: [:options]
 
   post '/search/query', to: 'search#query'
   get '/search/options', to: 'search#options'
@@ -22,6 +24,13 @@ Rails.application.routes.draw do
       patch :update
       delete :destroy
       get :placements
+    end
+  end
+
+  resources :plants, only: [] do
+    member do
+      post :favorite
+      post :unfavorite
     end
   end
 end

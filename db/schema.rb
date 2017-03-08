@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170211000849) do
+ActiveRecord::Schema.define(version: 20170308030828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -134,15 +134,17 @@ ActiveRecord::Schema.define(version: 20170211000849) do
     t.integer  "foliage_color_id"
     t.integer  "light_need_id"
     t.integer  "watering_need_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.text     "watering_needs_raw"
     t.text     "average_size_raw"
     t.integer  "plant_type_id"
     t.string   "permalink"
+    t.boolean  "favorite",           default: false
     t.index ["avg_height"], name: "index_plants_on_avg_height", using: :btree
     t.index ["avg_width"], name: "index_plants_on_avg_width", using: :btree
     t.index ["common_name"], name: "index_plants_on_common_name", using: :btree
+    t.index ["favorite"], name: "index_plants_on_favorite", using: :btree
     t.index ["flower_color_id"], name: "index_plants_on_flower_color_id", using: :btree
     t.index ["foliage_color_id"], name: "index_plants_on_foliage_color_id", using: :btree
     t.index ["growth_rate_id"], name: "index_plants_on_growth_rate_id", using: :btree

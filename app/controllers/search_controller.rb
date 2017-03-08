@@ -7,7 +7,7 @@ class SearchController < ApplicationController
     page_idx = params[:page_idx] || 0
 
     plants_query = Plant.where('')
-      .order("#{sort_order} #{sort_direction}")
+      .order("favorite DESC, #{sort_order} #{sort_direction}")
 
 
     query = params[:query]
