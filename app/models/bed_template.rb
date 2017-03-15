@@ -3,6 +3,10 @@ class BedTemplate < ApplicationRecord
   validates_presence_of :name
   validates_presence_of :config
 
+  def design_size
+    @design_size ||= JSON.parse(config)['size']['design']
+  end
+
   def render(width, height, plant_mapping = nil)
     config_hash = JSON.parse(config)
 

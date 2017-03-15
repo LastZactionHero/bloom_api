@@ -25,6 +25,34 @@ describe BedTemplatesController do
       expect(body.map{|bt| bt['id']}.sort).to eq(bed_templates.map{|bt| bt.id}.sort)
     end
 
+    it 'sorts by best fit for dimension' do
+      bed_template_fit_medium = FactoryGirl.create(:bed_template, config: {'name' => 'x', 'size' => {'design' => {'width' => 360, 'height' => 36}}, 'cell' => {'type' => 'EmptyGridCell'}}.to_json)
+      bed_template_fit_best   = FactoryGirl.create(:bed_template, config: {'name' => 'x', 'size' => {'design' => {'width' => 360, 'height' => 72}}, 'cell' => {'type' => 'EmptyGridCell'}}.to_json)
+      bed_template_fit_good   = FactoryGirl.create(:bed_template, config: {'name' => 'x', 'size' => {'design' => {'width' => 340, 'height' => 72}}, 'cell' => {'type' => 'EmptyGridCell'}}.to_json)
+      bed_template_fit_worst  = FactoryGirl.create(:bed_template, config: {'name' => 'x', 'size' => {'design' => {'width' => 4, 'height' => 4}}, 'cell' => {'type' => 'EmptyGridCell'}}.to_json)
+      bed_template_fit_bad    = FactoryGirl.create(:bed_template, config: {'name' => 'x', 'size' => {'design' => {'width' => 200, 'height' => 12}}, 'cell' => {'type' => 'EmptyGridCell'}}.to_json)
+
+      get :suggestions, params: { width: 30, depth: 6 }
+      expect(response.status).to eq(200)
+
+      body = JSON.parse(response.body)
+      expect(body[0]['id']).to eq(bed_template_fit_best.id)
+      expect(body[1]['id']).to eq(bed_template_fit_good.id)
+      expect(body[2]['id']).to eq(bed_template_fit_medium.id)
+      expect(body[3]['id']).to eq(bed_template_fit_bad.id)
+      expect(body[4]['id']).to eq(bed_template_fit_worst.id)
+    end
+
+    it 'limits to the top 5 templates' do
+      bed_templates = FactoryGirl.create_list(:bed_template, 10)
+
+      get :suggestions, params: { width: 30, depth: 6 }
+      expect(response.status).to eq(200)
+
+      body = JSON.parse(response.body)
+      expect(body.length).to eq(5)
+    end
+
     it 'returns an error if the dimensions are too small' do
       get :suggestions, params: { width: 2, depth: 2 }
       expect(response.status).to eq(400)

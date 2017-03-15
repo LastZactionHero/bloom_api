@@ -1,8 +1,9 @@
 class BedTemplatesController < ApplicationController
-  TEMPLATE_DEPTH_MINIMUM = 3
-  TEMPLATE_DEPTH_MAXIMUM = 100
-  TEMPLATE_WIDTH_MINIMUM = 3
-  TEMPLATE_WIDTH_MAXIMUM = 100
+  TEMPLATE_DEPTH_MINIMUM = 3 * 12
+  TEMPLATE_DEPTH_MAXIMUM = 100 * 12
+  TEMPLATE_WIDTH_MINIMUM = 3 * 12
+  TEMPLATE_WIDTH_MAXIMUM = 100 * 12
+  TEMPLATE_RESULT_LIMIT = 5
 
   def index
     bed_templates = BedTemplate.all
@@ -10,8 +11,8 @@ class BedTemplatesController < ApplicationController
   end
 
   def suggestions
-    width = params[:width].to_i
-    depth = params[:depth].to_i
+    width = params[:width].to_i * 12
+    depth = params[:depth].to_i * 12
 
     errors = {}
     errors[:width] = ['is too small'] if width < TEMPLATE_WIDTH_MINIMUM
@@ -20,8 +21,14 @@ class BedTemplatesController < ApplicationController
     errors[:depth] = ['is too large'] if depth > TEMPLATE_DEPTH_MAXIMUM
 
     if errors.blank?
-      # TODO: Actual selections based on size
-      bed_templates = BedTemplate.all
+      # Sort to show nearest sizes
+      bed_templates = BedTemplate.all.sort do |a,b|
+        dist_a = ((width - a.design_size['width']) ** 2 + (depth - a.design_size['height']) ** 2) ** 0.5
+        dist_b = ((width - b.design_size['width']) ** 2 + (depth - b.design_size['height']) ** 2) ** 0.5
+
+        dist_a <=> dist_b
+      end.first(TEMPLATE_RESULT_LIMIT)
+
       render status: 200, json: bed_templates.map{|b| BedTemplateSerializer.new(b).to_json }
     else
       render status: 400, json: { errors: errors }
