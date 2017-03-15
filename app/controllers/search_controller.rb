@@ -7,10 +7,16 @@ class SearchController < ApplicationController
     page_idx = params[:page_idx] || 0
 
     plants_query = Plant.where('')
-      .order("favorite DESC, #{sort_order} #{sort_direction}")
-
 
     query = params[:query]
+
+    if query[:preference_permalinks] && query[:preference_permalinks].any?
+      preference_ids = Plant.where(permalink: query[:preference_permalinks]).pluck(:id)
+      plants_query = plants_query.order("plants.id IN (#{preference_ids.join(',')}) DESC, favorite DESC, #{sort_order} #{sort_direction}")
+    else
+      plants_query = plants_query.order("favorite DESC, #{sort_order} #{sort_direction}")
+    end
+
     if query[:common_name].present?
       plants_query = plants_query.where("common_name ILIKE ?", "%#{query[:common_name]}%")
     end
