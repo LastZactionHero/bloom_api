@@ -75,6 +75,12 @@ class SearchController < ApplicationController
       plants_query = plants_query.where('avg_width <= ?', query[:width]['max'])
     end
 
+    if query[:soil_moisture]
+      soil_choices = query[:soil_moisture].split('|')
+      soil_query = soil_choices.map{|choice| "soil_moisture LIKE \'%#{choice}%\'"}.join(' OR ')
+      plants_query = plants_query.where(soil_query)
+    end
+
     record_count = plants_query.count
 
     plants = plants_query.offset(RECORDS_PER_PAGE * page_idx)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170308030828) do
+ActiveRecord::Schema.define(version: 20170319201559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -141,6 +141,7 @@ ActiveRecord::Schema.define(version: 20170308030828) do
     t.integer  "plant_type_id"
     t.string   "permalink"
     t.boolean  "favorite",           default: false
+    t.string   "soil_moisture"
     t.index ["avg_height"], name: "index_plants_on_avg_height", using: :btree
     t.index ["avg_width"], name: "index_plants_on_avg_width", using: :btree
     t.index ["common_name"], name: "index_plants_on_common_name", using: :btree
@@ -153,6 +154,7 @@ ActiveRecord::Schema.define(version: 20170308030828) do
     t.index ["permalink"], name: "index_plants_on_permalink", using: :btree
     t.index ["plant_type_id"], name: "index_plants_on_plant_type_id", using: :btree
     t.index ["scientific_name"], name: "index_plants_on_scientific_name", using: :btree
+    t.index ["soil_moisture"], name: "index_plants_on_soil_moisture", using: :btree
     t.index ["store_available"], name: "index_plants_on_store_available", using: :btree
     t.index ["watering_need_id"], name: "index_plants_on_watering_need_id", using: :btree
   end
