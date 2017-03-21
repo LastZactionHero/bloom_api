@@ -81,6 +81,10 @@ class SearchController < ApplicationController
       plants_query = plants_query.where(soil_query)
     end
 
+    if query[:lighting]
+      plants_query = plants_query.where("lighting LIKE ?", "%#{query[:lighting]}%")
+    end
+
     record_count = plants_query.count
 
     plants = plants_query.offset(RECORDS_PER_PAGE * page_idx)
