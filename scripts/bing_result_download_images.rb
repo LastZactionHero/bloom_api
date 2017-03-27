@@ -21,7 +21,7 @@ end
 
 plants.each_with_index do |plant, idx|
   puts "#{idx}: #{plant[:permalink]}"
-  next if idx < 108
+  next if idx < 107
   next if plant[:urls].empty?
   `curl #{unescape_url(plant[:urls][0])} > ./scripts/plants_images/#{plant[:permalink]}.jpg`
   `curl #{unescape_url(plant[:urls][1])} > ./scripts/plants_images/secondary/#{plant[:permalink]}.jpg` if plant[:urls][1].present?
