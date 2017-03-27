@@ -36,7 +36,7 @@
               "pattern": "ZigZagPositionPattern",
               "tooltip": "X",
               "plant_type": "X",
-              "options": {"start_position": "down"}
+              "options": {"pattern": {"start_position": "down"}}
           },
           {
               "type": "PlantGridCell",
@@ -45,14 +45,14 @@
               "plant": {
                   "label": "X2",
                   "width": 24,
-                  "horizontal_spacing": -4,
-                  "vertical_spacing": -4,
+                  "horizontal_spacing": -8,
+                  "vertical_spacing": 0,
                   "search_query": {}
               },
               "pattern": "ZigZagPositionPattern",
               "tooltip": "X",
               "plant_type": "X",
-              "options": {"start_position": "up"}
+              "options": {"pattern": {"start_position": "down"}}
           }
         ]
     },

@@ -27,7 +27,7 @@
             "height_percent": 1.0,
             "plant": {
                 "label": "X2",
-                "width": 24,
+                "width": 12,
                 "horizontal_spacing": 0,
                 "vertical_spacing": 0,
                 "search_query": {}
@@ -49,7 +49,7 @@
               "height_percent": 1.0,
               "plant": {
                   "label": "X1",
-                  "width": 48,
+                  "width": 18,
                   "horizontal_spacing": -8,
                   "vertical_spacing": -8,
                   "search_query": {}

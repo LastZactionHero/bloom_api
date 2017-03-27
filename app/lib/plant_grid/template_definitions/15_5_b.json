@@ -1,17 +1,17 @@
 {
     "size": {
-        "design": {
-            "width": 120,
-            "height": 36
-        },
-        "max": {
-            "width": 136,
-            "height": 60
-        },
-        "min": {
-            "width": 96,
-            "height": 24
-        }
+      "design": {
+          "width": 180,
+          "height": 60
+      },
+      "max": {
+          "width": 180,
+          "height": 60
+      },
+      "min": {
+          "width": 136,
+          "height": 48
+      }
     },
     "zones": [
         "5"
@@ -22,8 +22,8 @@
         "height_percent": 1.0,
         "plant": {
             "label": "X",
-            "width": 40,
-            "horizontal_spacing": 0,
+            "width": 52,
+            "horizontal_spacing": -8,
             "vertical_spacing": 0,
             "search_query": {}
         },
@@ -32,5 +32,5 @@
         "plant_type": "X",
         "options": {}
     },
-    "name": "10_3_B"
+    "name": "15_5_B"
 }

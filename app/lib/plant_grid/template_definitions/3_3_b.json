@@ -1,16 +1,16 @@
 {
     "size": {
         "design": {
-            "width": 60,
-            "height": 60
+            "width": 40,
+            "height": 40
         },
         "max": {
-            "width": 36,
-            "height": 36
+            "width": 48,
+            "height": 48
         },
         "min": {
-            "width": 120,
-            "height": 120
+            "width": 36,
+            "height": 36
         }
     },
     "zones": [
@@ -28,7 +28,7 @@
               "height_percent": 0.4,
               "plant": {
                   "label": "X1",
-                  "width": 20,
+                  "width": 14,
                   "horizontal_spacing": -4,
                   "vertical_spacing": -4,
                   "search_query": {}
@@ -36,7 +36,7 @@
               "pattern": "ZigZagPositionPattern",
               "tooltip": "X",
               "plant_type": "X",
-              "options": {}
+              "options": {"pattern": {"start_position": "down"}}
           },
           {
               "type": "PlantGridCell",
@@ -44,17 +44,17 @@
               "height_percent": 0.6,
               "plant": {
                   "label": "X2",
-                  "width": 18,
-                  "horizontal_spacing": -12,
-                  "vertical_spacing": 6,
+                  "width": 16,
+                  "horizontal_spacing": -6,
+                  "vertical_spacing": 0,
                   "search_query": {}
               },
               "pattern": "ZigZagPositionPattern",
               "tooltip": "X",
               "plant_type": "X",
-              "options": {"pattern" : {"start_position": "down"}}
+              "options": {"pattern":{"start_position": "down"}}
           }
         ]
     },
-    "name": "5_5_A"
+    "name": "3_3_B"
 }

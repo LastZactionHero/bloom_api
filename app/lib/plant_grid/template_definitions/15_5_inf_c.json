@@ -1,0 +1,196 @@
+{
+    "size": {
+        "design": {
+            "width": 180,
+            "height": 60
+        },
+        "min": {
+            "width": 150,
+            "height": 48
+        },
+        "max": {
+            "width": 204,
+            "height": 72
+        }
+    },
+    "zones": [
+        "5"
+    ],
+    "cell": {
+        "type": "CompositeGridCell",
+        "width_percent": 1,
+        "height_percent": 1,
+        "orientation": "horizontal",
+        "children": [
+            {
+                "type": "CompositeGridCell",
+                "width_percent": 0.2,
+                "height_percent": 1,
+                "orientation": "vertical",
+                "children": [
+                    {
+                        "type": "PlantGridCell",
+                        "width_percent": 1,
+                        "height_percent": 0.5,
+                        "pattern": "ZigZagPositionPattern",
+                        "plant": {
+                            "label": "PR1",
+                            "width": 18,
+                            "horizontal_spacing": -8,
+                            "vertical_spacing": -8,
+                            "search_query": {"common_name":"","height":{"min":null,"max":null},"width":{"min":12,"max":24},"leave_types":[],"growth_rates":[],"flower_colors":[6,13,9,7],"foliage_colors":[],"light_needs":[],"watering_needs":[],"key_features":[],"special_features":[],"zones":[],"usages":[],"garden_styles":[],"flower_attributes":[1,2],"plant_types":[1]},
+                            "tooltip": "Loose and natural looking mid size perennial, good for massing",
+                            "plant_type": "Perennial"
+                        }
+                    },
+                    {
+                        "type": "EmptyGridCell",
+                        "width_percent": 1,
+                        "height_percent": 0.5
+                    }
+                ],
+                "options": {
+                    "min_width": 0
+                }
+            },
+            {
+                "type": "PlantGridCell",
+                "width_percent": 0.5,
+                "height_percent": 1,
+                "pattern": "ZigZagPositionPattern",
+                "plant": {
+                    "label": "SH1",
+                    "width": 24,
+                    "horizontal_spacing": -10,
+                    "vertical_spacing": -10,
+                    "search_query": {"common_name":"","height":{"min":null,"max":null},"width":{"min":18,"max":24},"leave_types":[],"growth_rates":[],"flower_colors":[],"foliage_colors":[],"light_needs":[],"watering_needs":[],"key_features":[],"special_features":[],"zones":[],"usages":[13],"garden_styles":[],"flower_attributes":[2],"plant_types":[3]},
+                    "tooltip": "Mid size deciduous shrub with showy flowers",
+                    "plant_type": "Shrub"
+                },
+                "options": {
+                    "pattern": {
+                        "start_position": "down"
+                    }
+                }
+            },
+            {
+                "type": "OverlayGridCell",
+                "width_percent": 0.3,
+                "height_percent": 1,
+                "children": [
+                    {
+                        "type": "PlantGridCell",
+                        "width_percent": 1,
+                        "height_percent": 1,
+                        "pattern": "ClumpingPositionPattern",
+                        "plant": {
+                            "label": "PR2",
+                            "width": 12,
+                            "horizontal_spacing": 0,
+                            "vertical_spacing": 0,
+                            "search_query": {
+                                "common_name": "",
+                                "height": {
+                                    "min": 12,
+                                    "max": 18
+                                },
+                                "width": {
+                                    "min": 12,
+                                    "max": 18
+                                },
+                                "leave_types": [
+                                    1
+                                ],
+                                "growth_rates": [],
+                                "flower_colors": [],
+                                "foliage_colors": [],
+                                "light_needs": [],
+                                "watering_needs": [],
+                                "key_features": [],
+                                "special_features": [],
+                                "zones": [],
+                                "usages": [],
+                                "garden_styles": [],
+                                "flower_attributes": [],
+                                "plant_types": [
+                                    1
+                                ]
+                            },
+                            "tooltip": "Semi evergreen perennial",
+                            "plant_type": "Perennial"
+                        }
+                    },
+                    {
+                        "type": "CompositeGridCell",
+                        "width_percent": 1,
+                        "height_percent": 1,
+                        "orientation": "vertical",
+                        "children": [
+                            {
+                                "type": "EmptyGridCell",
+                                "width_percent": 1,
+                                "height_percent": 0.6
+                            },
+                            {
+                                "type": "CompositeGridCell",
+                                "width_percent": 1,
+                                "height_percent": 0.4,
+                                "orientation": "horizontal",
+                                "children": [
+                                    {
+                                        "type": "PlantGridCell",
+                                        "width_percent": 0.6,
+                                        "height_percent": 1,
+                                        "pattern": "ZigZagPositionPattern",
+                                        "plant": {
+                                            "label": "PR3",
+                                            "width": 12,
+                                            "horizontal_spacing": -4,
+                                            "vertical_spacing": -4,
+                                            "search_query": {
+                                                "common_name": "",
+                                                "height": {
+                                                    "min": null,
+                                                    "max": 18
+                                                },
+                                                "width": {
+                                                    "min": 10,
+                                                    "max": 18
+                                                },
+                                                "leave_types": [
+                                                    3
+                                                ],
+                                                "growth_rates": [],
+                                                "flower_colors": [],
+                                                "foliage_colors": [],
+                                                "light_needs": [],
+                                                "watering_needs": [],
+                                                "key_features": [],
+                                                "special_features": [],
+                                                "zones": [],
+                                                "usages": [],
+                                                "garden_styles": [],
+                                                "flower_attributes": [
+                                                    2
+                                                ],
+                                                "plant_types": []
+                                            },
+                                            "tooltip": "Small perennial with both striking foliage and blooms",
+                                            "plant_type": "Perennial"
+                                        }
+                                    },
+                                    {
+                                        "type": "EmptyGridCell",
+                                        "width_percent": 0.4,
+                                        "height_percent": 1
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "name": "15_5_INF_C"
+}

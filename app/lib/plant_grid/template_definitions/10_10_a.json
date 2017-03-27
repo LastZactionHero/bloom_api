@@ -25,11 +25,11 @@
           {
               "type": "PlantGridCell",
               "width_percent": 1.0,
-              "height_percent": 0.4,
+              "height_percent": 0.5,
               "plant": {
                   "label": "X1",
-                  "width": 20,
-                  "horizontal_spacing": -4,
+                  "width": 42,
+                  "horizontal_spacing": -12,
                   "vertical_spacing": -4,
                   "search_query": {}
               },
@@ -41,12 +41,12 @@
           {
               "type": "PlantGridCell",
               "width_percent": 1.0,
-              "height_percent": 0.6,
+              "height_percent": 0.5,
               "plant": {
                   "label": "X2",
-                  "width": 18,
-                  "horizontal_spacing": -12,
-                  "vertical_spacing": 6,
+                  "width": 30,
+                  "horizontal_spacing": -20,
+                  "vertical_spacing": 12,
                   "search_query": {}
               },
               "pattern": "ZigZagPositionPattern",
@@ -56,5 +56,5 @@
           }
         ]
     },
-    "name": "5_5_A"
+    "name": "10_10_A"
 }

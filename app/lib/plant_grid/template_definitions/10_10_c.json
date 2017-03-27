@@ -1,16 +1,16 @@
 {
     "size": {
         "design": {
-            "width": 60,
-            "height": 60
+            "width": 96,
+            "height": 96
         },
         "max": {
-            "width": 72,
-            "height": 72
+            "width": 120,
+            "height": 120
         },
         "min": {
-            "width": 48,
-            "height": 48
+            "width": 72,
+            "height": 72
         }
     },
     "zones": [
@@ -22,7 +22,7 @@
       "height_percent": 0.6,
       "plant": {
           "label": "X1",
-          "width": 48,
+          "width": 72,
           "horizontal_spacing": 0,
           "vertical_spacing": 0,
           "search_query": {}
