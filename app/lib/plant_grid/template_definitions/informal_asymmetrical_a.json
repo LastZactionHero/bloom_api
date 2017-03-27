@@ -1,0 +1,119 @@
+{
+    "size": {
+        "design": {
+            "width": 360,
+            "height": 72
+        },
+        "max": {
+            "width": 600,
+            "height": 100
+        },
+        "min": {
+            "width": 200,
+            "height": 48
+        }
+    },
+    "zones": [
+        "5"
+    ],
+    "cell": {
+      "type": "OverlayGridCell",
+      "width_percent": 1,
+      "height_percent": 1,
+      "children": [
+        {
+          "type": "CompositeGridCell",
+          "width_percent": 1.0,
+          "height_percent": 1.0,
+          "orientation": "horizontal",
+          "children": [
+            {
+              "type": "EmptyGridCell",
+              "width_percent": 0.45,
+              "height_percent": 1.0
+            },
+            {
+              "type": "CompositeGridCell",
+              "width_percent": 0.30,
+              "height_percent": 1.0,
+              "orientation": "vertical",
+              "children": [
+                {
+                  "type": "EmptyGridCell",
+                  "width_percent": 1.0,
+                  "height_percent": 0.4
+                },
+                {
+                    "type": "PlantGridCell",
+                    "width_percent": 1.0,
+                    "height_percent": 0.6,
+                    "plant": {
+                        "label": "GR",
+                        "width": 24,
+                        "horizontal_spacing": -2,
+                        "vertical_spacing": -2,
+                        "search_query": {"common_name":"","height":{"min":null,"max":12},"width":{"min":18,"max":30},"leave_types":[],"growth_rates":[],"flower_colors":[4,1,10],"foliage_colors":[],"light_needs":[],"watering_needs":[],"key_features":[],"special_features":[],"zones":[],"usages":[],"garden_styles":[],"flower_attributes":[],"plant_types":[5,1]}
+                    },
+                    "pattern": "ClumpingPositionPattern",
+                    "tooltip": "Short groundcover/perennial.  Lowest layer of planting",
+                    "plant_type": "Groundcover/Perennial",
+                    "options": {}
+                }
+              ]
+            },
+            {
+              "type": "EmptyGridCell",
+              "width_percent": 0.25,
+              "height_percent": 1.0
+            }
+          ]
+        },
+        {
+          "type": "CompositeGridCell",
+          "width_percent": 1,
+          "height_percent": 1,
+          "orientation": "horizontal",
+          "children": [
+            {
+                "type": "PlantGridCell",
+                "width_percent": 0.5,
+                "height_percent": 1.0,
+                "plant": {
+                    "label": "SH2",
+                    "width": 40,
+                    "horizontal_spacing": -10,
+                    "vertical_spacing": -10,
+                    "search_query": {"common_name":"hydrangea","height":{"min":null,"max":null},"width":{"min":30,"max":48},"leave_types":[],"growth_rates":[],"flower_colors":[],"foliage_colors":[],"light_needs":[],"watering_needs":[],"key_features":[],"special_features":[],"zones":[],"usages":[],"garden_styles":[],"flower_attributes":[],"plant_types":[]}
+                },
+                "pattern": "ZigZagPositionPattern",
+                "tooltip": "Mid size flowering shrub, natural/showy flowers are long lasting",
+                "plant_type": "Shrub",
+                "options": {}
+            },
+            {
+              "type": "EmptyGridCell",
+              "width_percent": 0.15,
+              "height_percent": 1.0
+            },
+            {
+                "type": "PlantGridCell",
+                "width_percent": 0.35,
+                "height_percent": 1.0,
+                "plant": {
+                    "label": "SH1",
+                    "width": 40,
+                    "horizontal_spacing": -8,
+                    "vertical_spacing": -8,
+                    "search_query": {"common_name":"","height":{"min":null,"max":null},"width":{"min":30,"max":48},"leave_types":[],"growth_rates":[],"flower_colors":[],"foliage_colors":[],"light_needs":[],"watering_needs":[],"key_features":[],"special_features":[],"zones":[],"usages":[7],"garden_styles":[],"flower_attributes":[],"plant_types":[3]}
+                },
+                "pattern": "ZigZagPositionPattern",
+                "tooltip": "Small, evergreen shrub.  One of most popular shrubs",
+                "plant_type": "Shrub",
+                "options": {}
+            }
+          ]
+        }
+      ]
+    },
+    "name": "Informal/Asymmetrical A"
+}

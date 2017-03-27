@@ -1,99 +1,164 @@
 {
-   "name":"Modern/Linear C",
-   "size":{
-      "design":{
-         "width":360,
-         "height":72
-      },
-      "max":{
-         "width":9999,
-         "height":9999
-      },
-      "min":{
-         "width":24,
-         "height":24
-      }
-   },
-   "zones":[
-      "5"
-   ],
-   "cell":{
-      "type":"CompositeGridCell",
-      "width_percent":1.0,
-      "height_percent":1.0,
-      "orientation":"horizontal",
-      "children":[
-         {
-            "type":"CompositeGridCell",
-            "width_percent":0.3,
-            "height_percent":1.0,
-            "orientation":"vertical",
-            "children":[
-               {
-                  "type":"PlantGridCell",
-                  "width_percent":1.0,
-                  "height_percent":0.6,
-                  "plant":{
-                     "label":"A",
-                     "width":3,
-                     "horizontal_spacing":3,
-                     "vertical_spacing":3,
-                     "search_query":{
-
-                     }
-                  },
-                  "pattern":"RectPositionPattern",
-                  "tooltip":"This is a great plant for all occasions.",
-                  "options":{
-
-                  }
-               },
-               {
-                  "type":"PlantGridCell",
-                  "width_percent":1.0,
-                  "height_percent":0.4,
-                  "plant":{
-                     "label":"B",
-                     "width":2,
-                     "horizontal_spacing":2,
-                     "vertical_spacing":2,
-                     "search_query":{
-
-                     }
-                  },
-                  "pattern":"RectPositionPattern",
-                  "tooltip":"My boss made me use this plant.",
-                  "options":{
-
-                  }
-               }
-            ],
-            "options":{
-
-            }
-         },
-         {
-            "type":"PlantGridCell",
-            "width_percent":0.7,
-            "height_percent":1.0,
-            "plant":{
-               "label":"C",
-               "width":4,
-               "horizontal_spacing":4,
-               "vertical_spacing":2,
-               "search_query":{
-
-               }
+    "size": {
+        "design": {
+            "width": 360,
+            "height": 72
+        },
+        "max": {
+            "width": 600,
+            "height": 100
+        },
+        "min": {
+            "width": 200,
+            "height": 48
+        }
+    },
+    "zones": [
+        "5"
+    ],
+    "cell": {
+        "type": "CompositeGridCell",
+        "width_percent": 1,
+        "height_percent": 1,
+        "orientation": "horizontal",
+        "children": [
+            {
+                "type": "CompositeGridCell",
+                "width_percent": 0.3,
+                "height_percent": 1,
+                "orientation": "vertical",
+                "children": [
+                    {
+                        "type": "PlantGridCell",
+                        "width_percent": 1,
+                        "height_percent": 0.5,
+                        "plant": {
+                            "label": "GRS",
+                            "width": 36,
+                            "horizontal_spacing": -4,
+                            "vertical_spacing": 0,
+                            "search_query": {}
+                        },
+                        "pattern": "SingleRowPositionPattern",
+                        "tooltip": "Mid size grass used in massing or screening small objects",
+                        "plant_type": "Grass",
+                        "options": {
+                            "common_name": "",
+                            "height": {
+                                "min": null,
+                                "max": null
+                            },
+                            "width": {
+                                "min": 24,
+                                "max": 40
+                            },
+                            "leave_types": [],
+                            "growth_rates": [],
+                            "flower_colors": [],
+                            "foliage_colors": [],
+                            "light_needs": [],
+                            "watering_needs": [],
+                            "key_features": [],
+                            "special_features": [],
+                            "zones": [],
+                            "usages": [],
+                            "garden_styles": [],
+                            "flower_attributes": [],
+                            "plant_types": [
+                                8
+                            ]
+                        }
+                    },
+                    {
+                        "type": "PlantGridCell",
+                        "width_percent": 1,
+                        "height_percent": 0.5,
+                        "plant": {
+                            "label": "PR",
+                            "width": 24,
+                            "horizontal_spacing": -4,
+                            "vertical_spacing": 0,
+                            "search_query": {
+                                "common_name": "",
+                                "height": {
+                                    "min": null,
+                                    "max": null
+                                },
+                                "width": {
+                                    "min": 18,
+                                    "max": 30
+                                },
+                                "leave_types": [],
+                                "growth_rates": [],
+                                "flower_colors": [
+                                    1,
+                                    2,
+                                    4
+                                ],
+                                "foliage_colors": [],
+                                "light_needs": [],
+                                "watering_needs": [],
+                                "key_features": [],
+                                "special_features": [],
+                                "zones": [],
+                                "usages": [],
+                                "garden_styles": [],
+                                "flower_attributes": [],
+                                "plant_types": [
+                                    5,
+                                    1
+                                ]
+                            }
+                        },
+                        "pattern": "SingleRowPositionPattern",
+                        "tooltip": "Short groundcover/perennial.  Used as the lowest level in layering",
+                        "plant_type": "Groundcover/Perennial",
+                        "options": {}
+                    }
+                ]
             },
-            "pattern":"RectPositionPattern",
-            "tooltip":"Put googly eyes on your plants to make them less scary.",
-            "options":{
-
+            {
+                "type": "PlantGridCell",
+                "width_percent": 0.7,
+                "height_percent": 1,
+                "plant": {
+                    "label": "SH",
+                    "width": 50,
+                    "horizontal_spacing": -4,
+                    "vertical_spacing": 0,
+                    "search_query": {
+                        "common_name": "",
+                        "height": {
+                            "min": null,
+                            "max": null
+                        },
+                        "width": {
+                            "min": 48,
+                            "max": 60
+                        },
+                        "leave_types": [],
+                        "growth_rates": [],
+                        "flower_colors": [],
+                        "foliage_colors": [],
+                        "light_needs": [],
+                        "watering_needs": [],
+                        "key_features": [],
+                        "special_features": [],
+                        "zones": [],
+                        "usages": [],
+                        "garden_styles": [],
+                        "flower_attributes": [],
+                        "plant_types": [
+                            3
+                        ]
+                    }
+                },
+                "pattern": "SingleRowPositionPattern",
+                "tooltip": "Larger shrub used as standalone or back drop for smaller plants",
+                "plant_type": "Shrub",
+                "options": {}
             }
-         }
-      ],
-      "options":{
-
-      }
-   }
+        ]
+    },
+    "name": "Modern/Linear C"
 }

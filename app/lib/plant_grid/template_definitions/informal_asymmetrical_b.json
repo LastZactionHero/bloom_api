@@ -1,0 +1,101 @@
+{
+    "size": {
+        "design": {
+            "width": 360,
+            "height": 72
+        },
+        "max": {
+            "width": 600,
+            "height": 100
+        },
+        "min": {
+            "width": 200,
+            "height": 48
+        }
+    },
+    "zones": [
+        "5"
+    ],
+    "cell": {
+      "type": "OverlayGridCell",
+      "width_percent": 1,
+      "height_percent": 1,
+      "children": [
+        {
+            "type": "PlantGridCell",
+            "width_percent": 1.0,
+            "height_percent": 1.0,
+            "plant": {
+                "label": "SH2",
+                "width": 48,
+                "horizontal_spacing": -8,
+                "vertical_spacing": -8,
+                "search_query": {"common_name":"","height":{"min":null,"max":48},"width":{"min":36,"max":48},"leave_types":[],"growth_rates":[],"flower_colors":[],"foliage_colors":[],"light_needs":[],"watering_needs":[],"key_features":[],"special_features":[],"zones":[],"usages":[7],"garden_styles":[],"flower_attributes":[],"plant_types":[3]}
+            },
+            "pattern": "ZigZagPositionPattern",
+            "tooltip": "Mid size, evergreen shrub.  Berries add winter interest",
+            "plant_type": "Shrub",
+            "options": {"start_position": "down"}
+        },
+        {
+          "type": "CompositeGridCell",
+          "width_percent": 1,
+          "height_percent": 1,
+          "orientation": "horizontal",
+          "children": [
+            {
+              "type": "EmptyGridCell",
+              "width_percent": 0.7,
+              "height_percent": 1.0
+            },
+            {
+                "type": "PlantGridCell",
+                "width_percent": 0.3,
+                "height_percent": 1.0,
+                "plant": {
+                    "label": "SH3",
+                    "width": 40,
+                    "horizontal_spacing": -8,
+                    "vertical_spacing": -8,
+                    "search_query": {"common_name":"","height":{"min":null,"max":36},"width":{"min":28,"max":36},"leave_types":[],"growth_rates":[],"flower_colors":[4,1],"foliage_colors":[],"light_needs":[],"watering_needs":[],"key_features":[],"special_features":[],"zones":[],"usages":[],"garden_styles":[],"flower_attributes":[],"plant_types":[3]}
+                },
+                "pattern": "ZigZagPositionPattern",
+                "tooltip": "Small, deciduous shrub.  Showy flowers and interesting leaf color",
+                "plant_type": "Shrub",
+                "options": {"start_position": "up"}
+            }
+          ]
+        },
+        {
+          "type": "CompositeGridCell",
+          "width_percent": 1,
+          "height_percent": 1,
+          "orientation": "horizontal",
+          "children": [
+            {
+                "type": "PlantGridCell",
+                "width_percent": 0.2,
+                "height_percent": 1.0,
+                "plant": {
+                    "label": "SH1",
+                    "width": 60,
+                    "horizontal_spacing": 0,
+                    "vertical_spacing": 0,
+                    "search_query": {"common_name":"","height":{"min":null,"max":72},"width":{"min":60,"max":72},"leave_types":[],"growth_rates":[],"flower_colors":[],"foliage_colors":[],"light_needs":[],"watering_needs":[],"key_features":[],"special_features":[],"zones":[],"usages":[7],"garden_styles":[],"flower_attributes":[],"plant_types":[3]}
+                },
+                "pattern": "SingleRowPositionPattern",
+                "tooltip": "Very Large, deciduous, flowering shrub.  Produces desirable smell",
+                "plant_type": "Shrub",
+                "options": {"start_position": "up"}
+            },
+            {
+              "type": "EmptyGridCell",
+              "width_percent": 0.8,
+              "height_percent": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    "name": "Informal/Asymmetrical B"
+}

@@ -1,0 +1,122 @@
+{
+    "size": {
+        "design": {
+            "width": 360,
+            "height": 72
+        },
+        "max": {
+            "width": 600,
+            "height": 100
+        },
+        "min": {
+            "width": 200,
+            "height": 48
+        }
+    },
+    "zones": [
+        "5"
+    ],
+    "cell": {
+      "type": "OverlayGridCell",
+      "width_percent": 1,
+      "height_percent": 1,
+      "children": [
+        {
+          "type": "CompositeGridCell",
+          "width_percent": 1,
+          "height_percent": 1,
+          "orientation": "vertical",
+          "children": [
+            {
+              "type": "EmptyGridCell",
+              "width_percent": 1.0,
+              "height_percent": 0.6
+            },
+            {
+                "type": "PlantGridCell",
+                "width_percent": 1.0,
+                "height_percent": 0.4,
+                "plant": {
+                    "label": "PR",
+                    "width": 20,
+                    "horizontal_spacing": -6,
+                    "vertical_spacing": -6,
+                    "search_query": {"common_name":"","height":{"min":12,"max":24},"width":{"min":12,"max":24},"leave_types":[],"growth_rates":[],"flower_colors":[7,6,13,9],"foliage_colors":[],"light_needs":[],"watering_needs":[],"key_features":[],"special_features":[],"zones":[],"usages":[],"garden_styles":[],"flower_attributes":[],"plant_types":[1]}
+                },
+                "pattern": "ZigZagPositionPattern",
+                "tooltip": "Small perennial with showy flowers and interesting texture",
+                "plant_type": "Perennial",
+                "options": {"start_position": "down"}
+            }
+          ]
+        },
+        {
+          "type": "CompositeGridCell",
+          "width_percent": 1.0,
+          "height_percent": 1.0,
+          "orientation": "horizontal",
+          "children": [
+            {
+                "type": "PlantGridCell",
+                "width_percent": 0.15,
+                "height_percent": 1.0,
+                "plant": {
+                    "label": "SH1",
+                    "width": 42,
+                    "horizontal_spacing": 0,
+                    "vertical_spacing": 0,
+                    "search_query": {"common_name":"","height":{"min":36,"max":null},"width":{"min":36,"max":48},"leave_types":[],"growth_rates":[],"flower_colors":[7,6,13,9],"foliage_colors":[],"light_needs":[],"watering_needs":[],"key_features":[],"special_features":[],"zones":[],"usages":[],"garden_styles":[],"flower_attributes":[],"plant_types":[3]}
+                },
+                "pattern": "SingleRowPositionPattern",
+                "tooltip": "Large, evergreen shrub, used mostly for height/shape in landscape",
+                "plant_type": "Shrub",
+                "options": {}
+            },
+            {
+              "type": "EmptyGridCell",
+              "width_percent": 0.10,
+              "height_percent": 1.0
+            },
+            {
+                "type": "PlantGridCell",
+                "width_percent": 0.50,
+                "height_percent": 1.0,
+                "plant": {
+                    "label": "SH2",
+                    "width": 42,
+                    "horizontal_spacing": -8,
+                    "vertical_spacing": -8,
+                    "search_query": {"common_name":"","height":{"min":24,"max":48},"width":{"min":36,"max":48},"leave_types":[],"growth_rates":[],"flower_colors":[4,1,2],"foliage_colors":[],"light_needs":[],"watering_needs":[],"key_features":[],"special_features":[],"zones":[],"usages":[],"garden_styles":[],"flower_attributes":[],"plant_types":[3]}
+                },
+                "pattern": "ZigZagPositionPattern",
+                "tooltip": "Mid size deciduous shrub with showy flowers and interesting leaf color",
+                "plant_type": "Shrub",
+                "options": {"start_position": "down"}
+            },
+            {
+              "type": "EmptyGridCell",
+              "width_percent": 0.10,
+              "height_percent": 1.0
+            },
+            {
+                "type": "PlantGridCell",
+                "width_percent": 0.15,
+                "height_percent": 1.0,
+                "plant": {
+                    "label": "SH1",
+                    "width": 42,
+                    "horizontal_spacing": 0,
+                    "vertical_spacing": 0,
+                    "search_query": {"common_name":"","height":{"min":36,"max":null},"width":{"min":36,"max":48},"leave_types":[],"growth_rates":[],"flower_colors":[7,6,13,9],"foliage_colors":[],"light_needs":[],"watering_needs":[],"key_features":[],"special_features":[],"zones":[],"usages":[],"garden_styles":[],"flower_attributes":[],"plant_types":[3]}
+                },
+                "pattern": "SingleRowPositionPattern",
+                "tooltip": "Large, evergreen shrub, used mostly for height/shape in landscape",
+                "plant_type": "Shrub",
+                "options": {"start_position": "down"}
+            }
+          ]
+        }
+      ]
+    },
+    "name": "Formal/Symmetrical A"
+}

@@ -1,0 +1,76 @@
+{
+    "size": {
+        "design": {
+            "width": 360,
+            "height": 72
+        },
+        "max": {
+            "width": 600,
+            "height": 100
+        },
+        "min": {
+            "width": 200,
+            "height": 48
+        }
+    },
+    "zones": [
+        "5"
+    ],
+    "cell": {
+      "type": "CompositeGridCell",
+      "width_percent": 1,
+      "height_percent": 1,
+      "orientation": "horizontal",
+      "children": [
+        {
+            "type": "PlantGridCell",
+            "width_percent": 0.3,
+            "height_percent": 1.0,
+            "plant": {
+                "label": "PR",
+                "width": 30,
+                "horizontal_spacing": -4,
+                "vertical_spacing": -4,
+                "search_query": {"common_name":"","height":{"min":null,"max":null},"width":{"min":18,"max":30},"leave_types":[],"growth_rates":[],"flower_colors":[10,1],"foliage_colors":[],"light_needs":[],"watering_needs":[],"key_features":[],"special_features":[],"zones":[],"usages":[],"garden_styles":[],"flower_attributes":[],"plant_types":[1]}
+            },
+            "pattern": "RectPositionPattern",
+            "tooltip": "Small to mid size perennial.  Good in massing",
+            "plant_type": "Perennial",
+            "options": {}
+        },
+        {
+            "type": "PlantGridCell",
+            "width_percent": 0.4,
+            "height_percent": 1.0,
+            "plant": {
+                "label": "SH",
+                "width": 50,
+                "horizontal_spacing": -4,
+                "vertical_spacing": 0,
+                "search_query": {"common_name":"","height":{"min":null,"max":null},"width":{"min":40,"max":60},"leave_types":[],"growth_rates":[],"flower_colors":[],"foliage_colors":[],"light_needs":[],"watering_needs":[],"key_features":[],"special_features":[],"zones":[],"usages":[7],"garden_styles":[1],"flower_attributes":[],"plant_types":[21,3]}
+            },
+            "pattern": "SingleRowPositionPattern",
+            "tooltip": "Mid size evergreen shrub.  Good as a backdrop or can be trimmed into a hedge",
+            "plant_type": "Shrub",
+            "options": {}
+        },
+        {
+            "type": "PlantGridCell",
+            "width_percent": 0.3,
+            "height_percent": 1.0,
+            "plant": {
+                "label": "PR",
+                "width": 30,
+                "horizontal_spacing": -4,
+                "vertical_spacing": -4,
+                "search_query": {"common_name":"","height":{"min":null,"max":null},"width":{"min":18,"max":30},"leave_types":[],"growth_rates":[],"flower_colors":[10,1],"foliage_colors":[],"light_needs":[],"watering_needs":[],"key_features":[],"special_features":[],"zones":[],"usages":[],"garden_styles":[],"flower_attributes":[],"plant_types":[1]}
+            },
+            "pattern": "RectPositionPattern",
+            "tooltip": "Small to mid size perennial.  Good in massing",
+            "plant_type": "Perennial",
+            "options": {}
+        }
+      ]
+    },
+    "name": "Modern/Linear B"
+}
