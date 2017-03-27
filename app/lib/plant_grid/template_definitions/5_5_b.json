@@ -1,0 +1,60 @@
+{
+    "size": {
+        "design": {
+            "width": 60,
+            "height": 60
+        },
+        "max": {
+            "width": 36,
+            "height": 36
+        },
+        "min": {
+            "width": 120,
+            "height": 120
+        }
+    },
+    "zones": [
+        "5"
+    ],
+    "cell": {
+        "type": "CompositeGridCell",
+        "width_percent": 1.0,
+        "height_percent": 1.0,
+        "orientation": "vertical",
+        "children": [
+          {
+              "type": "PlantGridCell",
+              "width_percent": 1.0,
+              "height_percent": 0.4,
+              "plant": {
+                  "label": "X1",
+                  "width": 20,
+                  "horizontal_spacing": -4,
+                  "vertical_spacing": -4,
+                  "search_query": {}
+              },
+              "pattern": "ZigZagPositionPattern",
+              "tooltip": "X",
+              "plant_type": "X",
+              "options": {"start_position": "down"}
+          },
+          {
+              "type": "PlantGridCell",
+              "width_percent": 1.0,
+              "height_percent": 0.6,
+              "plant": {
+                  "label": "X2",
+                  "width": 24,
+                  "horizontal_spacing": -4,
+                  "vertical_spacing": -4,
+                  "search_query": {}
+              },
+              "pattern": "ZigZagPositionPattern",
+              "tooltip": "X",
+              "plant_type": "X",
+              "options": {"start_position": "up"}
+          }
+        ]
+    },
+    "name": "5_5_B"
+}

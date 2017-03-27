@@ -1,0 +1,36 @@
+{
+    "size": {
+        "design": {
+            "width": 120,
+            "height": 36
+        },
+        "max": {
+            "width": 180,
+            "height": 60
+        },
+        "min": {
+            "width": 96,
+            "height": 24
+        }
+    },
+    "zones": [
+        "5"
+    ],
+    "cell": {
+        "type": "PlantGridCell",
+        "width_percent": 1.0,
+        "height_percent": 1.0,
+        "plant": {
+            "label": "X",
+            "width": 40,
+            "horizontal_spacing": -8,
+            "vertical_spacing": -8,
+            "search_query": {}
+        },
+        "pattern": "ZigZagPositionPattern",
+        "tooltip": "X",
+        "plant_type": "X",
+        "options": {}
+    },
+    "name": "Formal/Symmetrical A"
+}

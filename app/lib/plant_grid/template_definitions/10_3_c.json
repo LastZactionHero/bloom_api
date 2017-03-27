@@ -1,0 +1,72 @@
+{
+    "size": {
+        "design": {
+            "width": 120,
+            "height": 36
+        },
+        "max": {
+            "width": 180,
+            "height": 60
+        },
+        "min": {
+            "width": 96,
+            "height": 24
+        }
+    },
+    "zones": [
+        "5"
+    ],
+    "cell": {
+      "type": "OverlayGridCell",
+      "width_percent": 1.0,
+      "height_percent": 1.0,
+      "children": [
+        {
+            "type": "PlantGridCell",
+            "width_percent": 1.0,
+            "height_percent": 1.0,
+            "plant": {
+                "label": "X2",
+                "width": 24,
+                "horizontal_spacing": 0,
+                "vertical_spacing": 0,
+                "search_query": {}
+            },
+            "pattern": "ClumpingPositionPattern",
+            "tooltip": "X2",
+            "plant_type": "X2",
+            "options": {}
+        },
+        {
+          "type": "CompositeGridCell",
+          "width_percent": 1.0,
+          "height_percent": 1.0,
+          "orientation": "horizontal",
+          "children": [
+            {
+              "type": "PlantGridCell",
+              "width_percent": 0.7,
+              "height_percent": 1.0,
+              "plant": {
+                  "label": "X1",
+                  "width": 48,
+                  "horizontal_spacing": -8,
+                  "vertical_spacing": -8,
+                  "search_query": {}
+              },
+              "pattern": "ZigZagPositionPattern",
+              "tooltip": "X1",
+              "plant_type": "X1",
+              "options": {}
+            },
+            {
+              "type": "EmptyGridCell",
+              "width_percent": 0.3,
+              "height_percent": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    "name": "10_3_C"
+}
