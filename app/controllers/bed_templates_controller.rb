@@ -6,7 +6,7 @@ class BedTemplatesController < ApplicationController
   TEMPLATE_RESULT_LIMIT = 5
 
   def index
-    bed_templates = BedTemplate.all
+    bed_templates = BedTemplate.all.order("name ASC")
     render status: 200, json: bed_templates.map{|b| BedTemplateSerializer.new(b).to_json }
   end
 
