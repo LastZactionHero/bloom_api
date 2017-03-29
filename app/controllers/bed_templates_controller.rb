@@ -3,7 +3,7 @@ class BedTemplatesController < ApplicationController
   TEMPLATE_DEPTH_MAXIMUM = 100 * 12
   TEMPLATE_WIDTH_MINIMUM = 3 * 12
   TEMPLATE_WIDTH_MAXIMUM = 100 * 12
-  TEMPLATE_RESULT_LIMIT = 5
+  TEMPLATE_RESULT_LIMIT = 10
 
   def index
     bed_templates = BedTemplate.all.order("name ASC")

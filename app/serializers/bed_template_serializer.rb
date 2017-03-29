@@ -3,7 +3,9 @@ class BedTemplateSerializer < BaseSerializer
     {
       id: @object.id,
       name: @object.name,
-      config: @object.config
+      config: @object.config,
+      design_size: @object.design_size,
+      template_plants: @object.template_plants
     }
   end
 end

@@ -17,7 +17,24 @@ class BedTemplate < ApplicationRecord
     PlantGrid::Printer.new(grid).draw
   end
 
+  def config_obj
+    @config_obj ||= JSON.parse(config)
+  end
+
+  def template_plants
+    cell = config_obj["cell"]
+    recurse_find_template_plants(cell).uniq
+  end
+
   private
+
+  def recurse_find_template_plants(cell)
+    if cell["type"] == "PlantGridCell"
+      return cell['plant']
+    elsif cell["children"]
+      return cell["children"].map{ |child| recurse_find_template_plants(child) }.flatten
+    end
+  end
 
   def recurse_apply_plant_mapping_to_cell(cell, plant_mapping)
     if(cell['type'] == 'CompositeGridCell')
