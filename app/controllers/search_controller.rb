@@ -7,6 +7,7 @@ class SearchController < ApplicationController
     page_idx = params[:page_idx] || 0
 
     plants_query = Plant.where('')
+    # plants_query = Plant.select("DISTINCT plants.id")
 
     query = params[:query]
 
@@ -78,19 +79,21 @@ class SearchController < ApplicationController
       plants_query = plants_query.where("lighting LIKE ?", "%#{query[:lighting]}%")
     end
 
-    plants_query = plants_query.uniq
+    # plants_query = plants_query.select
+    # plants_query = plants_query.uniq
 
     if query[:preference_permalinks] && query[:preference_permalinks].any?
       preference_ids = Plant.where(permalink: query[:preference_permalinks]).pluck(:id)
-      plants_query = plants_query.order("plants.id IN (#{preference_ids.join(',')}) DESC, favorite DESC, #{sort_order} #{sort_direction}")
+      preference_sort = preference_ids.map{|id| "plants.id='#{id}' DESC"}.join(', ')
+      # plants_query = plants_query.order("plants.id IN (#{preference_ids.join(',')}) DESC, favorite DESC, #{sort_order} #{sort_direction}")
+      plants_query = plants_query.order("#{preference_sort}, favorite DESC, #{sort_order} #{sort_direction}").group('plants.id')
     else
-      plants_query = plants_query.order("favorite DESC, #{sort_order} #{sort_direction}")
+      plants_query = plants_query.order("favorite DESC, #{sort_order} #{sort_direction}").group('plants.id')
     end
 
-    record_count = plants_query.count
+    record_count = plants_query.length
 
-    plants = plants_query.offset(RECORDS_PER_PAGE * page_idx)
-      .limit(RECORDS_PER_PAGE)
+    plants = plants_query.offset(RECORDS_PER_PAGE * page_idx).limit(RECORDS_PER_PAGE); 0
 
     render status: 200, json: {
       meta: {
