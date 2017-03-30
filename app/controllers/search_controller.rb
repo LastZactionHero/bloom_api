@@ -10,13 +10,6 @@ class SearchController < ApplicationController
 
     query = params[:query]
 
-    if query[:preference_permalinks] && query[:preference_permalinks].any?
-      preference_ids = Plant.where(permalink: query[:preference_permalinks]).pluck(:id)
-      plants_query = plants_query.order("plants.id IN (#{preference_ids.join(',')}) DESC, favorite DESC, #{sort_order} #{sort_direction}")
-    else
-      plants_query = plants_query.order("favorite DESC, #{sort_order} #{sort_direction}")
-    end
-
     if query[:common_name].present?
       plants_query = plants_query.where("common_name ILIKE ?", "%#{query[:common_name]}%")
     end
@@ -86,6 +79,14 @@ class SearchController < ApplicationController
     end
 
     plants_query = plants_query.uniq
+
+    if query[:preference_permalinks] && query[:preference_permalinks].any?
+      preference_ids = Plant.where(permalink: query[:preference_permalinks]).pluck(:id)
+      plants_query = plants_query.order("plants.id IN (#{preference_ids.join(',')}) DESC, favorite DESC, #{sort_order} #{sort_direction}")
+    else
+      plants_query = plants_query.order("favorite DESC, #{sort_order} #{sort_direction}")
+    end
+
     record_count = plants_query.count
 
     plants = plants_query.offset(RECORDS_PER_PAGE * page_idx)
