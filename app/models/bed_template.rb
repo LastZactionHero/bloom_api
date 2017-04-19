@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: bed_templates
+#
+#  id            :integer          not null, primary key
+#  name          :string
+#  design_width  :integer
+#  design_height :integer
+#  config        :jsonb
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
 class BedTemplate < ApplicationRecord
   before_validation :parse_config
   validates_presence_of :name

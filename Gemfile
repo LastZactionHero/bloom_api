@@ -46,6 +46,7 @@ end
 
 
 group :development do
+  gem 'annotate', :git => 'https://github.com/ctran/annotate_models.git', :ref => '00c9da722e8a315d62b7c8b1792f89c480d10e28'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
