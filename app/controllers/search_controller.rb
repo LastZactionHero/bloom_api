@@ -4,7 +4,7 @@ class SearchController < ApplicationController
   def query
     sort_order = 'common_name'
     sort_direction = 'ASC'
-    page_idx = params[:page_idx] || 0
+    page_idx = (params[:page_idx] || 0).to_i
 
     plants_query = Plant.where('')
     # plants_query = Plant.select("DISTINCT plants.id")
