@@ -1,5 +1,36 @@
 class SearchController < ApplicationController
   RECORDS_PER_PAGE = 24
+  SIMILAR_COUNT = 10
+
+  def similar
+    plant = Plant.find_by(permalink: params[:permalink])
+    render status: 404, json: {} and return unless plant
+
+    zone = nil
+    if params[:zone]
+      zone = Zone.find_by(name: params[:zone])
+      render status: 400, json: { errors: { zone: ['is not valid'] } } and return unless zone
+    end
+
+    result_count = (params[:result_count] || SIMILAR_COUNT).to_i
+    similar_plants = plant.find_similar(result_count, zone: zone)
+
+    render status: 200, json: similar_plants.map { |p| PlantSerializer.new(p).to_json }
+  end
+
+  def random
+    plants_query = Plant
+
+    zone = nil
+    if params[:zone]
+      zone = Zone.find_by(name: params[:zone])
+      render status: 400, json: { errors: { zone: ['is not valid'] } } and return unless zone
+      plants_query = plants_query.joins(:zones).where('zones.id IN (?)', [zone.id])
+    end
+
+    plant = plants_query.all.sample
+    render status: 200, json: PlantSerializer.new(plant).to_json
+  end
 
   def query
     sort_order = 'common_name'

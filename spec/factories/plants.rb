@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :plant do
     common_name "Shruby"
+    permalink { SecureRandom.hex }
     scientific_name "MyText"
     source_url "MyText"
     image_url "MyText"
@@ -17,5 +18,6 @@ FactoryGirl.define do
     foliage_color_id 1
     light_need_id 1
     watering_need nil
+    similarity_index 0.1
   end
 end

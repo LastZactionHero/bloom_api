@@ -43,14 +43,14 @@ describe BedTemplatesController do
       expect(body[4]['id']).to eq(bed_template_fit_worst.id)
     end
 
-    it 'limits to the top 5 templates' do
-      bed_templates = FactoryGirl.create_list(:bed_template, 10)
+    it 'limits to the top 10 templates' do
+      bed_templates = FactoryGirl.create_list(:bed_template, 15)
 
       get :suggestions, params: { width: 30, depth: 6 }
       expect(response.status).to eq(200)
 
       body = JSON.parse(response.body)
-      expect(body.length).to eq(5)
+      expect(body.length).to eq(10)
     end
 
     it 'returns an error if the dimensions are too small' do

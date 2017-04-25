@@ -36,7 +36,7 @@ class BedTemplate < ApplicationRecord
 
   def template_plants
     cell = config_obj["cell"]
-    recurse_find_template_plants(cell).uniq
+    (recurse_find_template_plants(cell) || []).uniq
   end
 
   private

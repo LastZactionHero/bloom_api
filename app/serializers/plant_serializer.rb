@@ -36,7 +36,9 @@ class PlantSerializer < BaseSerializer
       watering_needs_raw: @object.watering_needs_raw,
       average_size_raw: @object.average_size_raw,
 
-      favorite: @object.favorite
+      favorite: @object.favorite,
+
+      similarity_index: @object.similarity_index
     }
   end
 end
