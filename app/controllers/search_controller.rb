@@ -19,7 +19,7 @@ class SearchController < ApplicationController
   end
 
   def random
-    plants_query = Plant
+    plants_query = Plant.where('avg_width > 0 AND avg_height > 0')
 
     zone = nil
     if params[:zone]
