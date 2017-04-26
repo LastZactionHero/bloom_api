@@ -72,7 +72,7 @@ class Plant < ApplicationRecord
   before_validation :set_permalink
 
   def find_similar(count, options = {})
-    plants_query = Plant
+    plants_query = Plant.where('avg_width > 0 AND avg_height > 0')
     plants_query = plants_query.joins(:zones).where('zones.id IN (?)', [options[:zone]]) if options[:zone]
 
     plant_idx_gt = plants_query.where("similarity_index >= ? AND plants.id != ?", similarity_index, id).order('similarity_index ASC').limit(count)
