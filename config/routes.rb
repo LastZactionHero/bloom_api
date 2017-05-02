@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   match '/zones/search', to: 'application#cors', via: [:options]
   match '/plants/:id/favorite', to: 'application#cors', via: [:options]
   match '/plants/:id/unfavorite', to: 'application#cors', via: [:options]
+  match '/combination_templates', to: 'application#cors', via: [:options]
 
   post '/search/query', to: 'search#query'
   get '/search/options', to: 'search#options'
@@ -17,6 +18,8 @@ Rails.application.routes.draw do
   get '/search/random', to: 'search#random'
   post '/early_sign_up', to: 'early_sign_up#signup'
   get '/zones/search', to: 'zones#search'
+
+  get '/combination_templates', to: 'combination_templates#index'
 
   resources :bed_templates do
     collection do
