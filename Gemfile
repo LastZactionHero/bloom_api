@@ -41,6 +41,7 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.8'
   gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
   gem 'rest-client', '~> 2.0'
+  gem 'rubocop', require: false
   gem 'pry-remote', '~> 0.1.8'
 end
 

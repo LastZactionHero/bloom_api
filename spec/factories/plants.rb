@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :plant do
-    common_name "Shruby"
+    common_name "Shruby #{ SecureRandom.hex }"
     permalink { SecureRandom.hex }
     scientific_name "MyText"
     source_url "MyText"
