@@ -75,11 +75,11 @@ class Plant < ApplicationRecord
     plants_query = Plant.where('avg_width > 0 AND avg_height > 0')
     plants_query = plants_query.joins(:zones).where('zones.id IN (?)', [options[:zone]]) if options[:zone]
 
-    plant_idx_gt = plants_query.where("similarity_index >= ? AND plants.id != ?", similarity_index, id).order('similarity_index ASC').limit(count)
-    plant_idx_lt = plants_query.where("similarity_index <= ? AND plants.id != ?", similarity_index, id).order('similarity_index DESC').limit(count)
+    plant_idx_gt = plants_query.where("similarity_index >= ?", similarity_index).order('similarity_index ASC').limit(count)
+    plant_idx_lt = plants_query.where("similarity_index <= ?", similarity_index).order('similarity_index DESC').limit(count)
 
     similarity_index_abs = similarity_index.abs
-    nearest_plants = plant_idx_gt.to_a + plant_idx_lt.to_a
+    nearest_plants = (plant_idx_gt.to_a + plant_idx_lt.to_a).uniq
     nearest_plants.sort! do |a, b|
       (similarity_index_abs - a.similarity_index.abs).abs <=> (similarity_index_abs - b.similarity_index.abs).abs
     end.first(count)

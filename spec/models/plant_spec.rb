@@ -18,7 +18,7 @@ RSpec.describe Plant, type: :model do
       expect(similiar_plants.length).to eq(similar_count)
 
       closest_plants_si = similiar_plants.map{|p| p.similarity_index}
-      expect(closest_plants_si).to eq([0.1, -0.1, 0.2, -0.2, 0.3, -0.3, 0.4, -0.4, 0.5, -0.5])
+      expect(closest_plants_si).to eq([0.0, 0.1, -0.1, 0.2, -0.2, 0.3, -0.3, 0.4, -0.4, 0.5])
     end
 
     it 'filters by zone' do
