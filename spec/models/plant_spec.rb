@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Plant, type: :model do
@@ -17,7 +19,7 @@ RSpec.describe Plant, type: :model do
       similiar_plants = plant.find_similar(10)
       expect(similiar_plants.length).to eq(similar_count)
 
-      closest_plants_si = similiar_plants.map{|p| p.similarity_index}
+      closest_plants_si = similiar_plants.map(&:similarity_index)
       expect(closest_plants_si).to eq([0.0, 0.1, -0.1, 0.2, -0.2, 0.3, -0.3, 0.4, -0.4, 0.5])
     end
 
@@ -31,6 +33,19 @@ RSpec.describe Plant, type: :model do
       similiar_plants = plant.find_similar(10, zone: zone)
       expect(similiar_plants.length).to eq(1)
       expect(similiar_plants[0]['permalink']).to eq(plant_in_zone.permalink)
+    end
+
+    it 'filters by max width' do
+      current_max_width = Plant.pluck(:avg_width).max
+
+      # Create a plant that is larger than the other plants and the same similarity_index
+      larger_plant = FactoryGirl.create(:plant,
+                                        similarity_index: plant.similarity_index,
+                                        avg_width: current_max_width + 2)
+
+      similiar_plants = plant.find_similar(10, max_width: current_max_width + 1)
+
+      expect(similiar_plants.map(&:permalink)).not_to include(larger_plant.permalink)
     end
   end
 end

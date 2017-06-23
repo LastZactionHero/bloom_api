@@ -12,8 +12,10 @@ class SearchController < ApplicationController
       render status: 400, json: { errors: { zone: ['is not valid'] } } and return unless zone
     end
 
+    max_width = params[:max_width] ? params[:max_width].to_i : nil
+
     result_count = (params[:result_count] || SIMILAR_COUNT).to_i
-    similar_plants = plant.find_similar(result_count, zone: zone)
+    similar_plants = plant.find_similar(result_count, zone: zone, max_width: max_width)
 
     render status: 200, json: similar_plants.map { |p| PlantSerializer.new(p).to_json }
   end

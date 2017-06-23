@@ -74,6 +74,7 @@ class Plant < ApplicationRecord
   def find_similar(count, options = {})
     plants_query = Plant.where('avg_width > 0 AND avg_height > 0')
     plants_query = plants_query.joins(:zones).where('zones.id IN (?)', [options[:zone]]) if options[:zone]
+    plants_query = plants_query.where("avg_width < ?", options[:max_width]) if options[:max_width]
 
     plant_idx_gt = plants_query.where("similarity_index >= ?", similarity_index).order('similarity_index ASC').limit(count)
     plant_idx_lt = plants_query.where("similarity_index <= ?", similarity_index).order('similarity_index DESC').limit(count)
