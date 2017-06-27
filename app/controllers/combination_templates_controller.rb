@@ -10,7 +10,9 @@ class CombinationTemplatesController < ApplicationController
         starting_plants: combination_template.starting_plants.map do |sp|
           {
             tooltip: sp.tooltip,
-            plant: PlantSerializer.new(sp.plant).to_json
+            plant: PlantSerializer.new(sp.plant).to_json,
+            placement: sp.placement,
+            area: sp.area
           }
         end
       }

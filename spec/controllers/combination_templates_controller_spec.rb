@@ -9,7 +9,7 @@ describe CombinationTemplatesController do
 
       get :index
       expect(response.status).to eq(200)
-      body = JSON.parse(response.body)    
+      body = JSON.parse(response.body)
       expect(body.length).to eq(CombinationTemplate.count)
     end
   end
